@@ -80,10 +80,10 @@ export default function RootLayout({
   return (
     <html lang="ko" className={geistSans.variable}>
       <body className="antialiased bg-gray-50 min-h-screen flex flex-col">
-        {/* Google AdSense — ca-pub-XXXXXXXXXXXXXXXX를 실제 게시자 ID로 교체 */}
+        {/* Google AdSense — ca-pub-7178675306403545를 실제 게시자 ID로 교체 */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7178675306403545"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
