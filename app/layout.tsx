@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import Script from "next/script";
 import HeaderClient from "@/components/HeaderClient";
 import "./globals.css";
 
@@ -79,15 +78,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={geistSans.variable}>
-      <body className="antialiased bg-gray-50 min-h-screen flex flex-col">
-        {/* Google AdSense — ca-pub-7178675306403545를 실제 게시자 ID로 교체 */}
-        <Script
+      {/* AdSense 크롤러가 HTML 소스에서 직접 감지할 수 있도록 <head>에 삽입 */}
+      <head>
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7178675306403545"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
-
+      </head>
+      <body className="antialiased bg-gray-50 min-h-screen flex flex-col">
         {/* WebSite 구조화 데이터 */}
         <script
           type="application/ld+json"
