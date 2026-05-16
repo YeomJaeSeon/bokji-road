@@ -51,8 +51,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
-  // Google Search Console 인증 — 실제 verification 코드로 교체 필요
-  // verification: { google: "GOOGLE_SEARCH_CONSOLE_TOKEN", other: { "naver-site-verification": "NAVER_TOKEN" } },
+  verification: {
+    google: "Q-PtYwhFTThfgD6q64UIT2Laom_5aQdH6HiaZ-NTk6I",
+    other: { "naver-site-verification": "02b51cf84ed1d5259ee8cefc32d6a0de70d3b290" },
+  },
 };
 
 // WebSite 구조화 데이터
