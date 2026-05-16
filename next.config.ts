@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // JSON import 허용 (기본적으로 지원되나 명시)
+  experimental: {},
 };
 
 export default nextConfig;
