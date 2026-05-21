@@ -42,46 +42,66 @@ export default function HomePage() {
     <>
       {/* 히어로 섹션 */}
       <section className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 text-white py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
+        <div className="max-w-4xl mx-auto text-center space-y-5">
           <p className="text-emerald-100 text-sm font-medium tracking-wide">🇰🇷 대한민국 복지혜택 가이드</p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight">
-            내 생애주기별<br />복지혜택 한눈에 보기
+            내 정보만 입력하면<br />
+            <span className="text-yellow-300">받을 수 있는 혜택</span>만 골라드려요
           </h1>
-          <p className="text-emerald-100 text-base max-w-xl mx-auto">
-            임신·출산부터 노년까지, 지금 받을 수 있는 정부 지원을 찾아드려요.
-            <br className="hidden sm:block" />
-            로그인 없이 바로 확인하세요.
+          <p className="text-emerald-100 text-sm max-w-sm mx-auto">
+            임신·출산부터 노년까지 {allBenefits.length}가지 정부지원 중<br />
+            <strong className="text-white">지금 내가 받을 수 있는 것</strong>만 1분 안에 확인
           </p>
-          <div className="flex flex-wrap justify-center gap-3 mt-2">
+
+          {/* 3단계 플로우 */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap pt-1">
+            {[
+              { icon: "📝", title: "내 정보 입력", sub: "나이·지역·소득 등 3분" },
+              { icon: "🔍", title: "자동 맞춤 분석", sub: "서버 저장 없음" },
+              { icon: "🎯", title: "혜택 리스트 확인", sub: "지금 신청 가능" },
+            ].map((step, i) => (
+              <div key={step.title} className="flex items-center gap-2 sm:gap-3">
+                <div className="flex flex-col items-center bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-3 min-w-[90px]">
+                  <span className="text-2xl mb-1">{step.icon}</span>
+                  <span className="text-xs font-bold text-white leading-tight">{step.title}</span>
+                  <span className="text-[10px] text-emerald-200 mt-0.5">{step.sub}</span>
+                </div>
+                {i < 2 && <span className="text-white/40 text-xl font-thin">›</span>}
+              </div>
+            ))}
+          </div>
+
+          {/* 개인정보 강조 배지 */}
+          <div className="inline-flex items-center gap-2 bg-emerald-800/50 border border-emerald-400/30 rounded-full px-4 py-1.5 text-xs text-emerald-100">
+            🔒 입력 정보는 내 기기에만 저장 · 서버 전송 없음 · 로그인 불필요
+          </div>
+
+          {/* CTA 버튼 */}
+          <div className="flex flex-wrap justify-center gap-3">
             <button
               onClick={() => setShowForm(true)}
-              className="bg-white text-emerald-700 font-bold px-6 py-3 rounded-xl hover:bg-emerald-50 transition-colors shadow-sm"
+              className="bg-white text-emerald-700 font-extrabold px-8 py-3.5 rounded-2xl hover:bg-yellow-50 transition-colors shadow-lg text-base"
             >
               내 맞춤 혜택 찾기 →
             </button>
             <a
               href="#benefits"
-              className="border border-white/40 text-white font-medium px-6 py-3 rounded-xl hover:bg-white/10 transition-colors"
+              className="border border-white/40 text-white font-medium px-6 py-3.5 rounded-2xl hover:bg-white/10 transition-colors text-sm flex items-center"
             >
-              전체 혜택 보기
+              전체 {allBenefits.length}가지 보기
             </a>
           </div>
-          <div className="flex justify-center gap-6 text-sm text-emerald-200 pt-2">
-            <span>✅ {allBenefits.length}가지 혜택 정리</span>
-            <span>🔒 개인정보 저장 없음</span>
-            <span>⚡ 1분 이내 확인</span>
-          </div>
-          <div className="pt-2">
+
+          {/* 129 콜센터 */}
+          <div className="pt-1">
             <a
               href="tel:129"
-              className="inline-flex items-center gap-2 bg-white/15 border border-white/30 text-white px-5 py-2.5 rounded-xl hover:bg-white/25 transition-colors text-sm font-semibold"
+              className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-5 py-2 rounded-xl hover:bg-white/20 transition-colors text-sm font-semibold"
               aria-label="복지 콜센터 129 전화 상담"
             >
-              ☎ 129 복지 콜센터 — 전화 상담
+              ☎ 129 복지 콜센터 무료 상담
             </a>
-            <p className="text-emerald-300 text-xs mt-1">
-              무료 · 월~금 9시~18시
-            </p>
+            <p className="text-emerald-300 text-xs mt-1">월~금 9시~18시</p>
           </div>
         </div>
       </section>

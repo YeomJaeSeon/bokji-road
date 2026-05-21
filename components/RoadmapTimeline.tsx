@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import type { LifecycleCategory, LifecycleStage } from "@/types";
 
 export const LIFECYCLE_STAGES: LifecycleStage[] = [
@@ -105,16 +104,99 @@ export const LIFECYCLE_STAGES: LifecycleStage[] = [
   },
 ];
 
+// 스네이크 로드: 2개씩 묶어서 행 구성
+const STAGE_ROWS: number[][] = [
+  [0, 1], // 임신출산, 영아  (→)
+  [2, 3], // 유아, 아동      (←)
+  [4, 5], // 청소년, 청년    (→)
+  [6, 7], // 장년, 중년      (←)
+  [8],    // 노년            (종착지)
+];
+
 interface Props {
   currentStage: LifecycleCategory | null;
   userAge: number | null;
   onStageClick: (stage: LifecycleCategory) => void;
 }
 
-export default function RoadmapTimeline({ currentStage, userAge, onStageClick }: Props) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+type StageStatus = "current" | "past" | "future" | "unknown";
 
-  function getStageStatus(stage: LifecycleStage) {
+function StagePin({
+  stage,
+  status,
+  onClick,
+}: {
+  stage: LifecycleStage;
+  status: StageStatus;
+  onClick: () => void;
+}) {
+  const isCurrent = status === "current";
+  const isPast = status === "past";
+
+  return (
+    <button
+      onClick={onClick}
+      className="flex flex-col items-center group transition-all hover:scale-105 active:scale-95 focus:outline-none"
+      aria-label={`${stage.label} (${stage.ageRange}) 혜택 보기`}
+    >
+      {/* 정보 카드 */}
+      <div
+        className={`
+          rounded-2xl border-2 px-3 py-2.5 text-center shadow-sm transition-all
+          min-w-[88px] sm:min-w-[104px]
+          ${isCurrent
+            ? "bg-emerald-500 border-emerald-400 shadow-emerald-200 shadow-md"
+            : isPast
+            ? "bg-gray-100 border-gray-200 opacity-70"
+            : `bg-white ${stage.bgColor} group-hover:shadow-md group-hover:border-opacity-100`}
+        `}
+      >
+        {isCurrent && (
+          <div className="text-[9px] font-bold text-emerald-100 mb-1 tracking-wider uppercase">
+            ✦ 현재 단계
+          </div>
+        )}
+        <div className="text-2xl mb-1">{stage.icon}</div>
+        <div
+          className={`text-xs font-extrabold leading-tight ${
+            isCurrent ? "text-white" : isPast ? "text-gray-400" : stage.color
+          }`}
+        >
+          {stage.label}
+        </div>
+        <div
+          className={`text-[10px] mt-0.5 ${
+            isCurrent ? "text-emerald-100" : "text-gray-400"
+          }`}
+        >
+          {stage.ageRange}
+        </div>
+      </div>
+
+      {/* 핀 스템 */}
+      <div
+        className={`w-0.5 h-5 ${
+          isCurrent ? "bg-emerald-500" : isPast ? "bg-gray-300" : "bg-slate-400"
+        }`}
+      />
+
+      {/* 핀 도트 (도로 위) */}
+      <div
+        className={`
+          w-4 h-4 rounded-full border-2 border-white shadow-md z-10 relative
+          ${isCurrent
+            ? "bg-emerald-500 ring-2 ring-emerald-300 ring-offset-1"
+            : isPast
+            ? "bg-gray-300"
+            : "bg-slate-500"}
+        `}
+      />
+    </button>
+  );
+}
+
+export default function RoadmapTimeline({ currentStage, userAge, onStageClick }: Props) {
+  function getStageStatus(stage: LifecycleStage): StageStatus {
     if (!userAge) return "unknown";
     if (stage.id === currentStage) return "current";
     if (stage.maxAge < (userAge === 0 ? 0 : userAge - 1)) return "past";
@@ -122,81 +204,101 @@ export default function RoadmapTimeline({ currentStage, userAge, onStageClick }:
   }
 
   return (
-    <section className="py-8 px-4" aria-label="생애주기 로드맵">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">생애주기별 복지 로드맵</h2>
-        <p className="text-center text-gray-500 text-sm mb-6">
-          각 단계를 클릭하면 해당 혜택을 바로 확인할 수 있어요
+    <section className="py-10 px-4 bg-gray-50" aria-label="생애주기 로드맵">
+      <div className="max-w-xl mx-auto">
+        <h2 className="text-2xl font-bold text-gray-800 mb-1 text-center">
+          생애주기별 복지 로드맵
+        </h2>
+        <p className="text-center text-gray-500 text-sm mb-8">
+          각 단계를 탭하면 해당 혜택만 바로 볼 수 있어요
         </p>
 
-        {/* 타임라인 — 가로 스크롤 */}
-        <div
-          ref={scrollRef}
-          className="overflow-x-auto pb-4 scrollbar-hide"
-          style={{ scrollbarWidth: "none" }}
-        >
-          <div className="flex items-center gap-0 min-w-max mx-auto px-4">
-            {LIFECYCLE_STAGES.map((stage, index) => {
-              const status = getStageStatus(stage);
-              return (
-                <div key={stage.id} className="flex items-center">
-                  {/* 스테이지 카드 */}
-                  <button
-                    onClick={() => onStageClick(stage.id)}
-                    className={`
-                      relative flex flex-col items-center gap-2 px-4 py-4 rounded-xl border-2
-                      transition-all duration-300 cursor-pointer min-w-[100px] group
-                      ${status === "current"
-                        ? "border-emerald-500 bg-emerald-50 shadow-lg scale-110 z-10"
-                        : status === "past"
-                        ? "border-gray-200 bg-gray-50 opacity-60 hover:opacity-80"
-                        : status === "future"
-                        ? `${stage.bgColor} hover:shadow-md hover:scale-105`
-                        : `${stage.bgColor} hover:shadow-md hover:scale-105`
-                      }
-                    `}
-                    aria-label={`${stage.label} (${stage.ageRange}) 단계로 이동`}
-                  >
-                    {status === "current" && (
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-                        현재 단계
-                      </div>
-                    )}
-                    {status === "past" && (
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-gray-400 text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-                        지난 혜택
-                      </div>
-                    )}
-                    {status === "future" && userAge && (
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-blue-400 text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-                        곧 받을 혜택
-                      </div>
-                    )}
-                    <span className="text-3xl">{stage.icon}</span>
-                    <div className="text-center">
-                      <div className={`text-sm font-bold ${status === "current" ? "text-emerald-700" : status === "past" ? "text-gray-400" : stage.color}`}>
-                        {stage.label}
-                      </div>
-                      <div className="text-[11px] text-gray-500 mt-0.5">{stage.ageRange}</div>
-                    </div>
-                  </button>
+        {/* 스네이크 도로 */}
+        <div>
+          {STAGE_ROWS.map((rowIndices, rowIdx) => {
+            const isReversed = rowIdx % 2 === 1;
+            const isLastRow = rowIdx === STAGE_ROWS.length - 1;
+            const isSingleStage = rowIndices.length === 1;
+            // 턴 방향: LTR 행 → 오른쪽 턴, RTL 행 → 왼쪽 턴
+            const turnOnRight = !isReversed;
 
-                  {/* 연결선 */}
-                  {index < LIFECYCLE_STAGES.length - 1 && (
-                    <div className="w-6 h-0.5 bg-gradient-to-r from-gray-300 to-gray-200 flex-shrink-0" />
-                  )}
+            return (
+              <div key={rowIdx}>
+                {/* 도로 행 */}
+                <div className="relative">
+                  {/* 도로 배경 */}
+                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-slate-700 rounded-2xl overflow-hidden">
+                    {/* 중앙 점선 */}
+                    <div className="absolute top-1/2 left-6 right-6 -translate-y-px flex gap-2">
+                      {Array.from({ length: 14 }).map((_, i) => (
+                        <div key={i} className="flex-1 h-px bg-white/30" />
+                      ))}
+                    </div>
+                    {/* 도로 방향 화살표 */}
+                    <div
+                      className={`absolute top-1/2 -translate-y-1/2 text-white/20 text-lg font-bold
+                        ${isReversed ? "left-4" : "right-4"}`}
+                    >
+                      {isReversed ? "←" : "→"}
+                    </div>
+                  </div>
+
+                  {/* 핀 영역 */}
+                  <div
+                    className={`
+                      relative flex items-end pb-[22px] pt-0 px-6
+                      ${isSingleStage ? "justify-center" : isReversed ? "flex-row-reverse justify-between" : "justify-between"}
+                    `}
+                  >
+                    {rowIndices.map((stageIdx) => {
+                      const stage = LIFECYCLE_STAGES[stageIdx];
+                      return (
+                        <StagePin
+                          key={stage.id}
+                          stage={stage}
+                          status={getStageStatus(stage)}
+                          onClick={() => onStageClick(stage.id)}
+                        />
+                      );
+                    })}
+
+                    {/* 마지막 행 종착 플래그 */}
+                    {isSingleStage && (
+                      <div className="absolute right-6 bottom-3 text-xl">🏁</div>
+                    )}
+                  </div>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* 코너 턴 커넥터 */}
+                {!isLastRow && (
+                  <div
+                    className={`flex ${turnOnRight ? "justify-end pr-6" : "justify-start pl-6"}`}
+                  >
+                    <div
+                      className={`
+                        w-16 h-9 bg-slate-700
+                        ${turnOnRight ? "rounded-br-3xl" : "rounded-bl-3xl"}
+                      `}
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        {/* 범례 */}
+        {/* 범례 (나이 입력 후에만 표시) */}
         {userAge && (
-          <div className="flex flex-wrap justify-center gap-4 mt-4 text-xs text-gray-500">
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" /> 현재 단계</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-gray-300 inline-block" /> 이미 지난 혜택</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block" /> 곧 받을 수 있는 혜택</span>
+          <div className="flex flex-wrap justify-center gap-4 mt-6 text-xs text-gray-500">
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" /> 현재 단계
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-gray-300 inline-block" /> 지난 혜택
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-slate-500 inline-block" /> 앞으로 받을 혜택
+            </span>
           </div>
         )}
       </div>
