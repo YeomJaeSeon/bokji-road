@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, Fragment, useEffect } from "react";
+import { useState, useRef, useCallback, Fragment, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useUserProfile } from "@/hooks/useUserProfile";
 import { useFilteredBenefits, useEligibleCount } from "@/hooks/useFilteredBenefits";
@@ -16,6 +16,15 @@ import FaqSection from "@/components/FaqSection";
 
 const allBenefits = benefitsData as Benefit[];
 
+// useSearchParams는 Suspense 경계 안에서만 사용 가능
+function SearchParamsHandler({ onOpenForm }: { onOpenForm: () => void }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    if (searchParams.get("open") === "form") onOpenForm();
+  }, [searchParams, onOpenForm]);
+  return null;
+}
+
 export default function HomePage() {
   const { profile, updateProfile, clearProfile, getLifecycleStage } = useUserProfile();
   const { isFavorite, toggle: toggleFavorite } = useFavorites();
@@ -23,13 +32,6 @@ export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<LifecycleCategory | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const benefitsRef = useRef<HTMLDivElement>(null);
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    if (searchParams.get("open") === "form") {
-      setShowForm(true);
-    }
-  }, [searchParams]);
 
   const filteredBenefits = useFilteredBenefits(allBenefits, profile);
   const { eligible, possible, estimatedAnnual } = useEligibleCount(allBenefits, profile);
@@ -62,6 +64,10 @@ export default function HomePage() {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <SearchParamsHandler onOpenForm={() => setShowForm(true)} />
+      </Suspense>
+
       {/* 히어로 섹션 */}
       <section className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 text-white py-12 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-5">
