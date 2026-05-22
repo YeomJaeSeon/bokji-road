@@ -36,7 +36,10 @@ export default function HomePage() {
 
   const currentStage = getLifecycleStage() as LifecycleCategory | null;
 
+  const hasProfile = profile.age !== null || profile.region !== null;
+
   const displayedBenefits = filteredBenefits.filter((b) => {
+    if (hasProfile && b.matchStatus === "해당없음") return false;
     if (activeCategory && b.category !== activeCategory) return false;
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
@@ -178,7 +181,13 @@ export default function HomePage() {
 
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-800">
-            {searchQuery ? `"${searchQuery}" 검색 결과` : activeCategory ? `${activeCategory} 혜택` : "전체 혜택"}
+            {searchQuery
+              ? `"${searchQuery}" 검색 결과`
+              : activeCategory
+              ? `${activeCategory} 혜택`
+              : hasProfile
+              ? "내 맞춤 혜택"
+              : "전체 혜택"}
             <span className="ml-2 text-sm font-normal text-gray-500">
               ({displayedBenefits.length}가지)
             </span>
