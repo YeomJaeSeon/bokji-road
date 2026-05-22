@@ -272,6 +272,33 @@ export default function HomePage() {
         )}
       </div>
 
+      {/* 비교 가이드 섹션 */}
+      <section className="py-8 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-lg font-bold text-gray-800 mb-4">📊 혜택 비교 가이드</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <a href="/compare/youth-savings"
+              className="group bg-white rounded-2xl border border-gray-100 p-5 hover:border-emerald-300 hover:shadow-md transition-all flex items-start gap-4">
+              <span className="text-3xl">💰</span>
+              <div>
+                <p className="font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">청년도약계좌 vs 청년희망적금</p>
+                <p className="text-sm text-gray-500 mt-1">월 납입·정부 기여금·세금 혜택 한눈에 비교</p>
+                <p className="text-xs text-emerald-600 mt-2 font-semibold">비교 보기 →</p>
+              </div>
+            </a>
+            <a href="/compare/pension-types"
+              className="group bg-white rounded-2xl border border-gray-100 p-5 hover:border-emerald-300 hover:shadow-md transition-all flex items-start gap-4">
+              <span className="text-3xl">👴</span>
+              <div>
+                <p className="font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">기초연금 vs 노령연금(국민연금)</p>
+                <p className="text-sm text-gray-500 mt-1">수령 조건·금액·신청 방법 완전 비교</p>
+                <p className="text-xs text-emerald-600 mt-2 font-semibold">비교 보기 →</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 서비스 안내 섹션 */}
       <section className="bg-white border-t border-gray-100 py-10 px-4">
         <div className="max-w-4xl mx-auto space-y-6">

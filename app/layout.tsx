@@ -111,24 +111,53 @@ export default function RootLayout({
 
         <main className="flex-1 pb-20 md:pb-0">{children}</main>
 
-        <footer className="bg-white border-t border-gray-100 py-8 px-4 text-center text-sm text-gray-500 mt-8">
-          <div className="max-w-4xl mx-auto space-y-3">
-            <p className="font-semibold text-gray-700 text-base">복지로드 🗺️</p>
-            <p>본 서비스는 정부 공식 기관이 아닌 민간 정보 제공 서비스입니다. 수혜 여부는 담당 기관에서 최종 확인하세요.</p>
-            <p>
-              <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">복지로(bokjiro.go.kr)</a>
-              {" · "}
-              <a href="tel:129" className="text-emerald-600 font-bold hover:underline">☎ 129 복지 콜센터</a>
-              {" (무료, 월~금 9~18시)"}
-            </p>
-            <div className="flex justify-center gap-4 pt-1 text-xs text-gray-400">
-              <a href="/about" className="hover:text-emerald-600 hover:underline">서비스 소개</a>
-              <span>·</span>
-              <a href="/privacy" className="hover:text-emerald-600 hover:underline">개인정보처리방침</a>
-              <span>·</span>
-              <a href="mailto:a89541457@gmail.com" className="hover:text-emerald-600 hover:underline">문의하기</a>
+        <footer className="bg-white border-t border-gray-100 py-8 px-4 text-sm text-gray-500 mt-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-6 text-xs">
+              <div>
+                <p className="font-bold text-gray-700 mb-2">혜택 안내</p>
+                <div className="space-y-1.5">
+                  <a href="/#benefits" className="block hover:text-emerald-600">전체 혜택 보기</a>
+                  <a href="/#roadmap" className="block hover:text-emerald-600">생애주기 로드맵</a>
+                  <a href="/favorites" className="block hover:text-emerald-600">즐겨찾기</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-bold text-gray-700 mb-2">계산기</p>
+                <div className="space-y-1.5">
+                  <a href="/calculator" className="block hover:text-emerald-600">실업급여 계산기</a>
+                  <a href="/calculator" className="block hover:text-emerald-600">근로장려금 계산기</a>
+                  <a href="/calculator" className="block hover:text-emerald-600">기초연금 계산기</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-bold text-gray-700 mb-2">비교 가이드</p>
+                <div className="space-y-1.5">
+                  <a href="/compare/youth-savings" className="block hover:text-emerald-600">청년도약계좌 비교</a>
+                  <a href="/compare/pension-types" className="block hover:text-emerald-600">기초연금 vs 노령연금</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-bold text-gray-700 mb-2">서비스</p>
+                <div className="space-y-1.5">
+                  <a href="/about" className="block hover:text-emerald-600">서비스 소개</a>
+                  <a href="/privacy" className="block hover:text-emerald-600">개인정보처리방침</a>
+                  <a href="mailto:a89541457@gmail.com" className="block hover:text-emerald-600">문의하기</a>
+                </div>
+              </div>
             </div>
-            <p className="text-xs text-gray-400 pt-1">© 2026 복지로드. 정보 제공 목적으로 운영되며 법적 효력이 없습니다.</p>
+
+            <div className="border-t border-gray-100 pt-5 text-center space-y-2">
+              <p className="font-semibold text-gray-700">복지로드 🗺️</p>
+              <p className="text-xs">본 서비스는 정부 공식 기관이 아닌 민간 정보 제공 서비스입니다. 수혜 여부는 담당 기관에서 최종 확인하세요.</p>
+              <p className="text-xs">
+                <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">복지로(bokjiro.go.kr)</a>
+                {" · "}
+                <a href="tel:129" className="text-emerald-600 font-bold hover:underline">☎ 129 복지 콜센터</a>
+                {" (무료, 월~금 9~18시)"}
+              </p>
+              <p className="text-xs text-gray-400">© 2026 복지로드. 정보 제공 목적으로 운영되며 법적 효력이 없습니다.</p>
+            </div>
           </div>
         </footer>
       </body>

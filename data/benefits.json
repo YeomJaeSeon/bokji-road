@@ -2544,5 +2544,464 @@
       ]
     },
     "seoDescription": "건강보험 본인부담금 상한제는 1년간 병원 진료비 중 본인이 부담한 금액이 소득수준별 상한액을 초과하면 초과분을 건강보험공단이 환급해주는 제도입니다. 특히 만성질환이 많은 노년층에게 중요한 의료비 안전망입니다. 소득 하위 그룹은 상한액이 87만원으로 낮아 큰 혜택을 받을 수 있습니다."
+  },
+  {
+    "id": "child-dental-care",
+    "name": "아동 치과주치의 사업",
+    "category": "유아",
+    "provider": "지방자치단체",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 5,
+      "maxAge": 6,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "서비스",
+      "amount": "치과 검진·예방처치 무료",
+      "duration": "연 1회"
+    },
+    "seoDescription": "만 5~6세 아동을 대상으로 치과 주치의를 배정하고 구강 검진, 불소 도포, 실란트 등 예방 처치를 무료로 제공합니다. 아동의 건강한 치아 관리를 위해 지자체별로 운영합니다.",
+    "application": {
+      "method": "주민센터·보건소",
+      "url": "https://www.bokjiro.go.kr",
+      "steps": [
+        "거주지 보건소 또는 주민센터 문의",
+        "치과주치의 배정 신청",
+        "지정 치과 방문"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "child-flu-vaccine",
+    "name": "어린이 인플루엔자 무료 예방접종",
+    "category": "유아",
+    "provider": "질병관리청",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 0,
+      "maxAge": 13,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "서비스",
+      "amount": "독감 예방접종 무료",
+      "duration": "매년 10~11월"
+    },
+    "seoDescription": "만 13세 이하(생후 6개월~만 13세) 어린이에게 인플루엔자(독감) 예방접종을 무료로 제공합니다. 매년 10월부터 지정 의료기관에서 접종 가능합니다.",
+    "application": {
+      "method": "지정 의료기관",
+      "url": "https://nip.kdca.go.kr",
+      "steps": [
+        "예방접종도우미 사이트에서 접종기관 확인",
+        "지정 의료기관 방문",
+        "무료 접종"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "child-care-allowance",
+    "name": "가정양육수당",
+    "category": "유아",
+    "provider": "보건복지부",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 0,
+      "maxAge": 5,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "현금",
+      "amount": "월 10만원 (연령별 상이)",
+      "duration": "만 6세 미만까지"
+    },
+    "seoDescription": "어린이집·유치원 등 보육시설을 이용하지 않고 가정에서 양육하는 만 0~5세 아동 가구에 월 10만~20만원의 양육수당을 지급합니다. 소득과 무관하게 전 가구 대상입니다.",
+    "application": {
+      "method": "주민센터·복지로",
+      "url": "https://www.bokjiro.go.kr",
+      "steps": [
+        "주소지 읍·면·동 주민센터 방문 또는 복지로 신청",
+        "보육시설 미이용 확인",
+        "매월 지급"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "youth-cultural-pass",
+    "name": "문화누리카드 (청소년)",
+    "category": "청소년",
+    "provider": "문화체육관광부",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 6,
+      "maxAge": 18,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "low",
+      "welfareStatus": [
+        "기초생활수급자",
+        "차상위계층"
+      ],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "현물",
+      "amount": "연 13만원 문화누리카드",
+      "duration": "매년"
+    },
+    "seoDescription": "기초생활수급자 및 차상위계층 청소년에게 문화·여행·체육 활동비로 사용 가능한 문화누리카드를 연 13만원 지원합니다. 영화, 공연, 도서 구매 등에 사용 가능합니다.",
+    "application": {
+      "method": "주민센터·온라인",
+      "url": "https://www.mnuri.kr",
+      "steps": [
+        "문화누리 홈페이지 또는 주민센터 신청",
+        "카드 수령",
+        "가맹점 사용"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "youth-dream-scholarship",
+    "name": "꿈사다리 장학금",
+    "category": "청소년",
+    "provider": "한국장학재단",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 12,
+      "maxAge": 18,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "low",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "현금",
+      "amount": "월 20만원 + 멘토링",
+      "duration": "중학교 ~ 대학교"
+    },
+    "seoDescription": "저소득층 중학생을 발굴해 대학 졸업까지 장기 지원하는 장학 프로그램입니다. 월 20만원 장학금과 함께 멘토링, 학습 지원을 제공하여 교육 격차를 해소합니다.",
+    "application": {
+      "method": "한국장학재단",
+      "url": "https://www.kosaf.go.kr",
+      "steps": [
+        "한국장학재단 홈페이지 신청",
+        "학교 추천 또는 개인 지원",
+        "서류 심사 후 선발"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "youth-sport-support",
+    "name": "스포츠강좌이용권 (청소년)",
+    "category": "청소년",
+    "provider": "문화체육관광부",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 5,
+      "maxAge": 18,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "low",
+      "welfareStatus": [
+        "기초생활수급자",
+        "차상위계층"
+      ],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "현물",
+      "amount": "월 최대 8.5만원 이용권",
+      "duration": "매년"
+    },
+    "seoDescription": "기초생활수급자 및 차상위계층 청소년에게 수영, 태권도, 피아노 등 체육·예술 강좌를 월 최대 8만 5천원 이용할 수 있는 스포츠강좌이용권을 지원합니다.",
+    "application": {
+      "method": "국민체육진흥공단",
+      "url": "https://svoucher.kspo.or.kr",
+      "steps": [
+        "스포츠강좌이용권 홈페이지 신청",
+        "자격 확인 후 이용권 지급",
+        "가맹 체육시설 이용"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "youth-mentoring",
+    "name": "청소년 멘토링 프로그램",
+    "category": "청소년",
+    "provider": "여성가족부",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 9,
+      "maxAge": 18,
+      "gender": "all",
+      "householdTypes": [
+        "한부모가정"
+      ],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "서비스",
+      "amount": "학습·진로 멘토링 무료",
+      "duration": "연간 운영"
+    },
+    "seoDescription": "취약계층·한부모 가정 청소년에게 대학생 멘토를 1:1로 연결해 학습, 진로 탐색, 생활 습관 개선을 지원합니다. 학교 성적 향상과 자존감 회복을 목표로 운영됩니다.",
+    "application": {
+      "method": "청소년상담복지센터",
+      "url": "https://www.kyci.or.kr",
+      "steps": [
+        "거주지 청소년상담복지센터 문의",
+        "신청서 제출",
+        "멘토 매칭 후 프로그램 참여"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "health-checkup-50s",
+    "name": "국가건강검진 (일반)",
+    "category": "중년",
+    "provider": "국민건강보험공단",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 40,
+      "maxAge": 74,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "서비스",
+      "amount": "건강검진 무료 (2년마다)",
+      "duration": "2년 1회"
+    },
+    "seoDescription": "만 40세 이상 국민에게 2년마다 혈압, 혈당, 콜레스테롤 등 일반 건강검진을 무료로 제공합니다. 암 검진은 별도로 신청 가능하며, 지정 의료기관에서 수검 가능합니다.",
+    "application": {
+      "method": "지정 의료기관",
+      "url": "https://www.nhis.or.kr",
+      "steps": [
+        "국민건강보험공단 검진기관 안내 확인",
+        "검진 대상자 여부 확인 (홈페이지)",
+        "지정 의료기관 방문"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "cancer-screening",
+    "name": "국가암검진 지원",
+    "category": "중년",
+    "provider": "국민건강보험공단",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 40,
+      "maxAge": 74,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "서비스",
+      "amount": "5대 암 검진 무료·10% 본인부담",
+      "duration": "1~2년마다"
+    },
+    "seoDescription": "위암(40세↑), 유방암(40세↑여성), 대장암(50세↑), 자궁경부암(20세↑여성), 간암(40세↑고위험군) 검진을 건강보험 가입자는 10%, 의료급여 수급자는 무료로 받을 수 있습니다.",
+    "application": {
+      "method": "지정 의료기관",
+      "url": "https://www.nhis.or.kr",
+      "steps": [
+        "국가암검진 대상자 안내문 확인 (우편)",
+        "검진 기관 예약",
+        "검진 수검"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "career-transition-support",
+    "name": "중장년 경력 지원 프로그램",
+    "category": "중년",
+    "provider": "고용노동부",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 40,
+      "maxAge": 64,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "서비스",
+      "amount": "경력 컨설팅·재취업 훈련 무료",
+      "duration": "1~6개월"
+    },
+    "seoDescription": "만 40세 이상 중장년층을 위한 생애경력설계, 전직 지원, 직업훈련을 무료로 제공합니다. 경력단절 이후 재취업을 원하는 분들이 체계적으로 준비할 수 있도록 돕습니다.",
+    "application": {
+      "method": "고용센터·중장년내일센터",
+      "url": "https://www.work.go.kr",
+      "steps": [
+        "거주지 관할 고용센터 방문",
+        "중장년 경력 지원 프로그램 상담 신청",
+        "훈련 참여"
+      ],
+      "documents": []
+    }
+  },
+  {
+    "id": "pension-early-join",
+    "name": "국민연금 임의(계속)가입",
+    "category": "중년",
+    "provider": "국민연금공단",
+    "region": [
+      "전국"
+    ],
+    "target": {
+      "minAge": 27,
+      "maxAge": 64,
+      "gender": "all",
+      "householdTypes": [],
+      "incomeLevel": "all",
+      "welfareStatus": [],
+      "housingOwnership": null,
+      "housingTypes": [],
+      "minChildren": 0,
+      "maritalStatus": [],
+      "employmentInsurance": false,
+      "companySize": [],
+      "disabilityGrade": [],
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "서비스",
+      "amount": "노령연금 수령 기간 연장",
+      "duration": "60세까지 계속 납부"
+    },
+    "seoDescription": "직장을 그만두거나 소득이 없어도 국민연금에 자발적으로 가입하여 연금 수령 기간(최소 10년)을 채울 수 있습니다. 경력단절 주부, 자영업자 폐업자 등이 활용할 수 있습니다.",
+    "application": {
+      "method": "국민연금공단",
+      "url": "https://www.nps.or.kr",
+      "steps": [
+        "국민연금공단 지사 방문 또는 전화",
+        "임의가입 신청서 제출",
+        "본인 희망 금액으로 납부"
+      ],
+      "documents": []
+    }
   }
 ]
