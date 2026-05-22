@@ -15,26 +15,30 @@ export const LIFECYCLE_STAGES: LifecycleStage[] = [
 ];
 
 // ── SVG 레이아웃 상수 (데스크톱 전용) ───────────────────────────────────────
+// 3행 × 3열 배치: 행마다 3단계씩
 const VW = 700;
-const VH = 560;
+const VH = 360;
 const LX = 110;
-const RX = 590;
 const CX = 350;
+const RX = 590;
 const CR = 72;
 const RS = 38;
 
-const RY = [85, 200, 315, 430, 530] as const;
+const RY = [85, 200, 315] as const;
 
+// Row 0 LTR: 임신출산(L) → 영아(C) → 유아(R)
+// Row 1 RTL: 아동(R) → 청소년(C) → 청년(L)
+// Row 2 LTR: 장년(L) → 중년(C) → 노년(R)
 const PIN_POS: [number, number][] = [
   [LX, RY[0]], // 0 임신출산
-  [RX, RY[0]], // 1 영아
-  [RX, RY[1]], // 2 유아
-  [LX, RY[1]], // 3 아동
-  [LX, RY[2]], // 4 청소년
-  [RX, RY[2]], // 5 청년
-  [RX, RY[3]], // 6 장년
-  [LX, RY[3]], // 7 중년
-  [CX, RY[4]], // 8 노년
+  [CX, RY[0]], // 1 영아
+  [RX, RY[0]], // 2 유아
+  [RX, RY[1]], // 3 아동
+  [CX, RY[1]], // 4 청소년
+  [LX, RY[1]], // 5 청년
+  [LX, RY[2]], // 6 장년
+  [CX, RY[2]], // 7 중년
+  [RX, RY[2]], // 8 노년
 ];
 
 const ROAD_D = [
@@ -44,17 +48,18 @@ const ROAD_D = [
   `L ${LX},${RY[1]}`,
   `C ${LX - CR},${RY[1]} ${LX - CR},${RY[2]} ${LX},${RY[2]}`,
   `L ${RX},${RY[2]}`,
-  `C ${RX + CR},${RY[2]} ${RX + CR},${RY[3]} ${RX},${RY[3]}`,
-  `L ${LX},${RY[3]}`,
-  `C ${LX - CR},${RY[3]} ${LX - CR},${RY[4]} ${LX},${RY[4]}`,
-  `L ${CX},${RY[4]}`,
 ].join(" ");
 
+// 각 핀 사이 구간에 방향 화살표 (핀 중심 x 피함)
+const MX1 = Math.round((LX + CX) / 2); // 230
+const MX2 = Math.round((CX + RX) / 2); // 470
 const ARROWS = [
-  { x: CX, y: RY[0], label: "→" },
-  { x: CX, y: RY[1], label: "←" },
-  { x: CX, y: RY[2], label: "→" },
-  { x: CX, y: RY[3], label: "←" },
+  { x: MX1, y: RY[0], label: "→" },
+  { x: MX2, y: RY[0], label: "→" },
+  { x: MX2, y: RY[1], label: "←" },
+  { x: MX1, y: RY[1], label: "←" },
+  { x: MX1, y: RY[2], label: "→" },
+  { x: MX2, y: RY[2], label: "→" },
 ] as const;
 
 type StageStatus = "current" | "past" | "future" | "unknown";
@@ -177,7 +182,7 @@ export default function RoadmapTimeline({ currentStage, userAge, onStageClick }:
                 {a.label}
               </text>
             ))}
-            <text x={CX + 30} y={RY[4] + 7} fontSize={20}>🏁</text>
+            <text x={RX + 22} y={RY[2] + 7} fontSize={20}>🏁</text>
           </svg>
 
           {LIFECYCLE_STAGES.map((stage, i) => {
