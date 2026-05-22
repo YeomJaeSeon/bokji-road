@@ -3,8 +3,29 @@
 import Link from "next/link";
 import type { BenefitWithMatch, MatchStatus } from "@/types";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
+
+function shareToKakao(title: string, description: string, url: string) {
+  const fullUrl = url.startsWith("http") ? url : `${SITE_URL}${url}`;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const kakao = (window as any).Kakao;
+  if (kakao?.Share) {
+    kakao.Share.sendDefault({
+      objectType: "feed",
+      content: { title: `[복지로드] ${title}`, description, imageUrl: `${SITE_URL}/opengraph-image`, link: { mobileWebUrl: fullUrl, webUrl: fullUrl } },
+      buttons: [{ title: "자세히 보기", link: { mobileWebUrl: fullUrl, webUrl: fullUrl } }],
+    });
+  } else if (navigator.share) {
+    navigator.share({ title: `복지로드 — ${title}`, text: description, url: fullUrl });
+  } else {
+    navigator.clipboard.writeText(fullUrl).then(() => alert("링크가 복사되었습니다!"));
+  }
+}
+
 interface Props {
   benefit: BenefitWithMatch;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
 const matchConfig: Record<MatchStatus, { icon: string; label: string; className: string }> = {
@@ -44,7 +65,7 @@ const benefitTypeIcons: Record<string, string> = {
   감면: "📉",
 };
 
-export default function BenefitCard({ benefit }: Props) {
+export default function BenefitCard({ benefit, isFavorite = false, onToggleFavorite }: Props) {
   const match = matchConfig[benefit.matchStatus];
   const catColor = categoryColors[benefit.category] ?? "bg-gray-100 text-gray-700";
   const typeIcon = benefitTypeIcons[benefit.benefit.type] ?? "📋";
@@ -67,11 +88,22 @@ export default function BenefitCard({ benefit }: Props) {
               {benefit.provider}
             </span>
           </div>
-          <span
-            className={`flex-shrink-0 text-xs font-bold px-2.5 py-1 rounded-full border ${match.className}`}
-          >
-            {match.icon} {match.label}
-          </span>
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${match.className}`}>
+              {match.icon} {match.label}
+            </span>
+            {onToggleFavorite && (
+              <button
+                onClick={() => onToggleFavorite(benefit.id)}
+                aria-label={isFavorite ? "즐겨찾기 해제" : "즐겨찾기 추가"}
+                className="p-1 rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill={isFavorite ? "#ef4444" : "none"} stroke={isFavorite ? "#ef4444" : "#9ca3af"} strokeWidth="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
         <h3 className="text-base font-bold text-gray-900 leading-snug">{benefit.name}</h3>
       </div>
@@ -117,21 +149,31 @@ export default function BenefitCard({ benefit }: Props) {
       </div>
 
       {/* 버튼 영역 */}
-      <div className="p-4 pt-0 flex gap-2">
-        <Link
-          href={`/benefits/${benefit.id}`}
-          className="flex-1 py-3 text-center text-sm font-medium text-emerald-700 border border-emerald-200 rounded-xl hover:bg-emerald-50 transition-colors min-h-[48px] flex items-center justify-center"
+      <div className="p-4 pt-0 space-y-2">
+        <div className="flex gap-2">
+          <Link
+            href={`/benefits/${benefit.id}`}
+            className="flex-1 py-3 text-center text-sm font-medium text-emerald-700 border border-emerald-200 rounded-xl hover:bg-emerald-50 transition-colors min-h-[48px] flex items-center justify-center"
+          >
+            상세 보기
+          </Link>
+          <a
+            href={benefit.application.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-3 text-center text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-colors min-h-[48px] flex items-center justify-center"
+          >
+            바로 신청하기 →
+          </a>
+        </div>
+        <button
+          onClick={() => shareToKakao(benefit.name, benefit.benefit.amount, `/benefits/${benefit.id}`)}
+          className="w-full py-2 text-xs font-semibold bg-[#FEE500] hover:bg-yellow-300 text-[#3C1E1E] rounded-xl transition-colors flex items-center justify-center gap-1.5"
+          aria-label="카카오톡으로 공유"
         >
-          상세 보기
-        </Link>
-        <a
-          href={benefit.application.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 py-3 text-center text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-colors min-h-[48px] flex items-center justify-center"
-        >
-          바로 신청하기 →
-        </a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.71 1.517 5.098 3.839 6.574l-.978 3.626 4.225-2.787A11.26 11.26 0 0012 18.6c5.523 0 10-3.477 10-7.8S17.523 3 12 3z"/></svg>
+          카카오톡으로 공유하기
+        </button>
       </div>
     </article>
   );

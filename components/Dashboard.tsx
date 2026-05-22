@@ -6,6 +6,7 @@ interface Props {
   profile: UserProfile;
   eligibleCount: number;
   possibleCount: number;
+  estimatedAnnual: number;
   onEditProfile: () => void;
 }
 
@@ -31,7 +32,7 @@ function getProfileChips(profile: UserProfile): string[] {
   return chips;
 }
 
-export default function Dashboard({ profile, eligibleCount, possibleCount, onEditProfile }: Props) {
+export default function Dashboard({ profile, eligibleCount, possibleCount, estimatedAnnual, onEditProfile }: Props) {
   const isComplete = profile.completedSteps >= TOTAL_STEPS;
   const hasBasicInfo = profile.age !== null;
   const chips = getProfileChips(profile);
@@ -64,15 +65,29 @@ export default function Dashboard({ profile, eligibleCount, possibleCount, onEdi
     <section className="bg-gradient-to-br from-emerald-600 to-teal-700 text-white rounded-2xl p-5 mx-4 my-4 max-w-4xl md:mx-auto shadow-lg">
       {/* 요약 숫자 */}
       <div className="flex items-start justify-between mb-4 gap-4">
-        <div>
+        <div className="flex-1 min-w-0">
           <p className="text-emerald-200 text-sm font-medium">맞춤 혜택 분석 결과</p>
           <h2 className="text-2xl font-bold mt-0.5">
             받을 수 있는 혜택{" "}
             <span className="text-yellow-300">{eligibleCount}가지</span>
           </h2>
+          {estimatedAnnual > 0 && (
+            <div className="mt-2 inline-flex items-center gap-1.5 bg-yellow-400/20 border border-yellow-400/30 rounded-xl px-3 py-1.5">
+              <span className="text-yellow-300 text-sm font-bold">💰</span>
+              <span className="text-yellow-200 text-sm">
+                연간 최대 약{" "}
+                <strong className="text-yellow-300 text-base">
+                  {estimatedAnnual >= 1000
+                    ? `${(estimatedAnnual / 100 / 10).toFixed(0)}천만원`
+                    : `${estimatedAnnual}만원`}
+                </strong>{" "}
+                수혜 추정
+              </span>
+            </div>
+          )}
           {possibleCount > 0 && (
-            <p className="text-emerald-200 text-sm mt-1">
-              추가 조건 확인 시 최대 {possibleCount}가지 더 받을 수 있어요
+            <p className="text-emerald-200 text-xs mt-1.5">
+              추가 조건 확인 시 {possibleCount}가지 더 가능
             </p>
           )}
         </div>

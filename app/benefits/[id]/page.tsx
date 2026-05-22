@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import benefitsData from "@/data/benefits.json";
 import type { Benefit } from "@/types";
-import AdSlot from "@/components/AdSlot";
+import AdSlot, { AdSlotHorizontal } from "@/components/AdSlot";
+import KakaoShareButton from "@/components/KakaoShareButton";
 
 const allBenefits = benefitsData as Benefit[];
 
@@ -117,8 +118,16 @@ export default async function BenefitDetailPage({ params }: Props) {
             </span>
           </div>
           <h1 className="text-2xl font-extrabold text-gray-900 mb-2">{benefit.name}</h1>
-          <p className="text-gray-600 leading-relaxed">{benefit.seoDescription}</p>
+          <p className="text-gray-600 leading-relaxed mb-4">{benefit.seoDescription}</p>
+          <KakaoShareButton
+            title={benefit.name}
+            description={benefit.benefit.amount}
+            url={`${SITE_URL}/benefits/${benefit.id}`}
+          />
         </div>
+
+        {/* 광고: 헤더 아래 */}
+        <AdSlotHorizontal slot="2000000001" />
 
         {/* 지원 내용 */}
         <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 mb-6">
@@ -268,8 +277,11 @@ export default async function BenefitDetailPage({ params }: Props) {
           </p>
         </div>
 
+        {/* 광고: 관련혜택 위 */}
+        <AdSlotHorizontal slot="2000000002" />
+
         {/* 관련 혜택 */}
-        <div className="mt-8">
+        <div className="mt-4">
           <h2 className="text-lg font-bold text-gray-800 mb-4">관련 혜택</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {allBenefits

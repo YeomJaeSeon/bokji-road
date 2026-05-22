@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import benefitsData from "@/data/benefits.json";
 import type { Benefit } from "@/types";
+import AdSlot, { AdSlotHorizontal } from "@/components/AdSlot";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
 const allBenefits = benefitsData as Benefit[];
@@ -396,6 +397,9 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         </div>
 
+        {/* 광고: 헤더 아래 */}
+        <AdSlotHorizontal slot="2000000010" />
+
         {/* 꿀팁 */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8">
           <h2 className="font-bold text-amber-800 mb-3">💡 놓치기 쉬운 꿀팁</h2>
@@ -449,6 +453,11 @@ export default async function CategoryPage({ params }: Props) {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* 광고: 혜택 목록 아래 */}
+        <div className="mb-8">
+          <AdSlot slot="2000000011" format="auto" className="w-full" style={{ minHeight: 90 }} />
         </div>
 
         {/* 맞춤 혜택 CTA */}

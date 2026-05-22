@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, Fragment, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useUserProfile } from "@/hooks/useUserProfile";
 import { useFilteredBenefits, useEligibleCount } from "@/hooks/useFilteredBenefits";
+import { useFavorites } from "@/hooks/useFavorites";
 import RoadmapTimeline, { LIFECYCLE_STAGES } from "@/components/RoadmapTimeline";
 import BenefitCard from "@/components/BenefitCard";
 import UserProfileForm from "@/components/UserProfileForm";
@@ -17,8 +18,10 @@ const allBenefits = benefitsData as Benefit[];
 
 export default function HomePage() {
   const { profile, updateProfile, getLifecycleStage } = useUserProfile();
+  const { isFavorite, toggle: toggleFavorite } = useFavorites();
   const [showForm, setShowForm] = useState(false);
   const [activeCategory, setActiveCategory] = useState<LifecycleCategory | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const benefitsRef = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
 
@@ -29,13 +32,23 @@ export default function HomePage() {
   }, [searchParams]);
 
   const filteredBenefits = useFilteredBenefits(allBenefits, profile);
-  const { eligible, possible } = useEligibleCount(allBenefits, profile);
+  const { eligible, possible, estimatedAnnual } = useEligibleCount(allBenefits, profile);
 
   const currentStage = getLifecycleStage() as LifecycleCategory | null;
 
-  const displayedBenefits = activeCategory
-    ? filteredBenefits.filter((b) => b.category === activeCategory)
-    : filteredBenefits;
+  const displayedBenefits = filteredBenefits.filter((b) => {
+    if (activeCategory && b.category !== activeCategory) return false;
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      return (
+        b.name.toLowerCase().includes(q) ||
+        b.category.toLowerCase().includes(q) ||
+        b.seoDescription.toLowerCase().includes(q) ||
+        b.benefit.amount.toLowerCase().includes(q)
+      );
+    }
+    return true;
+  });
 
   const handleStageClick = useCallback((stage: LifecycleCategory) => {
     setActiveCategory((prev) => (prev === stage ? null : stage));
@@ -117,6 +130,7 @@ export default function HomePage() {
         profile={profile}
         eligibleCount={eligible}
         possibleCount={possible}
+        estimatedAnnual={estimatedAnnual}
         onEditProfile={() => setShowForm(true)}
       />
 
@@ -137,16 +151,41 @@ export default function HomePage() {
 
       {/* 혜택 필터 카테고리 탭 */}
       <div id="benefits" ref={benefitsRef} className="max-w-5xl mx-auto px-4 pt-6 pb-2">
+        {/* 검색 바 */}
+        <div className="relative mb-4">
+          <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="혜택 이름·키워드로 검색 (예: 부모급여, 청년, 주거)"
+            className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent bg-white shadow-sm"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-gray-600"
+              aria-label="검색 초기화"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-800">
-            {activeCategory ? `${activeCategory} 혜택` : "전체 혜택"}
+            {searchQuery ? `"${searchQuery}" 검색 결과` : activeCategory ? `${activeCategory} 혜택` : "전체 혜택"}
             <span className="ml-2 text-sm font-normal text-gray-500">
               ({displayedBenefits.length}가지)
             </span>
           </h2>
-          {activeCategory && (
+          {(activeCategory || searchQuery) && (
             <button
-              onClick={() => setActiveCategory(null)}
+              onClick={() => { setActiveCategory(null); setSearchQuery(""); }}
               className="text-sm text-emerald-600 hover:text-emerald-700 font-medium"
             >
               전체 보기 ×
@@ -193,7 +232,11 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {displayedBenefits.map((benefit, index) => (
               <Fragment key={benefit.id}>
-                <BenefitCard benefit={benefit} />
+                <BenefitCard
+                  benefit={benefit}
+                  isFavorite={isFavorite(benefit.id)}
+                  onToggleFavorite={toggleFavorite}
+                />
 
                 {/* AD SLOT 2: 혜택 카드 3개마다 사이에 삽입 */}
                 {(index + 1) % 3 === 0 && index < displayedBenefits.length - 1 && (

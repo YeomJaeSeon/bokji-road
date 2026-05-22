@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function HeaderClient() {
   const [large, setLarge] = useState(false);
@@ -48,6 +49,7 @@ export default function HeaderClient() {
       {/* 숨긴 링크 (sm 이상) */}
       <a href="/#roadmap" className="hover:text-emerald-600 transition-colors hidden sm:block text-sm text-gray-600">로드맵</a>
       <a href="/#benefits" className="hover:text-emerald-600 transition-colors hidden sm:block text-sm text-gray-600">혜택 찾기</a>
+      <Link href="/calculator" className="hover:text-emerald-600 transition-colors hidden sm:block text-sm text-gray-600 font-semibold">계산기</Link>
       <a
         href="https://www.bokjiro.go.kr"
         target="_blank"
