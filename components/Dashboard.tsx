@@ -8,6 +8,7 @@ interface Props {
   possibleCount: number;
   estimatedAnnual: number;
   onEditProfile: () => void;
+  onClearProfile: () => void;
 }
 
 const TOTAL_STEPS = 5;
@@ -32,7 +33,7 @@ function getProfileChips(profile: UserProfile): string[] {
   return chips;
 }
 
-export default function Dashboard({ profile, eligibleCount, possibleCount, estimatedAnnual, onEditProfile }: Props) {
+export default function Dashboard({ profile, eligibleCount, possibleCount, estimatedAnnual, onEditProfile, onClearProfile }: Props) {
   const isComplete = profile.completedSteps >= TOTAL_STEPS;
   const hasBasicInfo = profile.age !== null;
   const chips = getProfileChips(profile);
@@ -140,6 +141,14 @@ export default function Dashboard({ profile, eligibleCount, possibleCount, estim
           </div>
         )}
       </div>
+      <button
+        onClick={() => {
+          if (confirm("입력한 정보를 모두 초기화할까요?")) onClearProfile();
+        }}
+        className="w-full mt-2 py-2 text-xs text-emerald-200 hover:text-white transition-colors"
+      >
+        🗑 내 정보 초기화
+      </button>
     </section>
   );
 }

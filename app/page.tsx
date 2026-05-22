@@ -17,7 +17,7 @@ import FaqSection from "@/components/FaqSection";
 const allBenefits = benefitsData as Benefit[];
 
 export default function HomePage() {
-  const { profile, updateProfile, getLifecycleStage } = useUserProfile();
+  const { profile, updateProfile, clearProfile, getLifecycleStage } = useUserProfile();
   const { isFavorite, toggle: toggleFavorite } = useFavorites();
   const [showForm, setShowForm] = useState(false);
   const [activeCategory, setActiveCategory] = useState<LifecycleCategory | null>(null);
@@ -135,6 +135,7 @@ export default function HomePage() {
         possibleCount={possible}
         estimatedAnnual={estimatedAnnual}
         onEditProfile={() => setShowForm(true)}
+        onClearProfile={clearProfile}
       />
 
       {/* AD SLOT 1: 대시보드 아래, 로드맵 위 */}
