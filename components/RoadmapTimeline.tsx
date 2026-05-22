@@ -178,7 +178,7 @@ export default function RoadmapTimeline({ currentStage, userAge, onStageClick }:
             <path d={ROAD_D} fill="none" stroke="#475569"  strokeWidth={RS * 0.35} strokeLinecap="round" strokeLinejoin="round" opacity={0.45} />
             <path d={ROAD_D} fill="none" stroke="rgba(255,255,255,0.28)" strokeWidth={2.5} strokeDasharray="16 10" strokeLinecap="round" />
             {ARROWS.map((a) => (
-              <text key={a.y} x={a.x} y={a.y + 7} textAnchor="middle" fontSize={22} fill="rgba(255,255,255,0.16)" fontWeight="bold">
+              <text key={`${a.x}-${a.y}`} x={a.x} y={a.y + 7} textAnchor="middle" fontSize={22} fill="rgba(255,255,255,0.16)" fontWeight="bold">
                 {a.label}
               </text>
             ))}
