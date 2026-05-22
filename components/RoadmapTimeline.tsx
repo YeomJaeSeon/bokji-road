@@ -16,14 +16,14 @@ export const LIFECYCLE_STAGES: LifecycleStage[] = [
 
 // ── SVG 레이아웃 상수 (데스크톱 전용) ───────────────────────────────────────
 const VW = 700;
-const VH = 480;
+const VH = 560;
 const LX = 110;
 const RX = 590;
 const CX = 350;
 const CR = 72;
 const RS = 38;
 
-const RY = [85, 200, 315, 430, 465] as const;
+const RY = [85, 200, 315, 430, 530] as const;
 
 const PIN_POS: [number, number][] = [
   [LX, RY[0]], // 0 임신출산
