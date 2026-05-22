@@ -33,7 +33,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/calculator`,
       lastModified: new Date("2026-05-23"),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/favorites`,
+      lastModified: new Date("2026-05-23"),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/compare/youth-savings`,
+      lastModified: new Date("2026-05-23"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/compare/pension-types`,
+      lastModified: new Date("2026-05-23"),
+      changeFrequency: "monthly",
+      priority: 0.85,
     },
     {
       url: `${SITE_URL}/about`,

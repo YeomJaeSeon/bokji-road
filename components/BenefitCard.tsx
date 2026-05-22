@@ -5,6 +5,11 @@ import type { BenefitWithMatch, MatchStatus } from "@/types";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
 
+function shareToNaverBand(title: string, url: string) {
+  const fullUrl = url.startsWith("http") ? url : `${SITE_URL}${url}`;
+  window.open(`https://band.us/plugin/share?body=${encodeURIComponent(`[복지로드] ${title}\n${fullUrl}`)}&route=${encodeURIComponent(fullUrl)}`, "_blank", "width=600,height=500");
+}
+
 function shareToKakao(title: string, description: string, url: string) {
   const fullUrl = url.startsWith("http") ? url : `${SITE_URL}${url}`;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -166,14 +171,24 @@ export default function BenefitCard({ benefit, isFavorite = false, onToggleFavor
             바로 신청하기 →
           </a>
         </div>
-        <button
-          onClick={() => shareToKakao(benefit.name, benefit.benefit.amount, `/benefits/${benefit.id}`)}
-          className="w-full py-2 text-xs font-semibold bg-[#FEE500] hover:bg-yellow-300 text-[#3C1E1E] rounded-xl transition-colors flex items-center justify-center gap-1.5"
-          aria-label="카카오톡으로 공유"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.71 1.517 5.098 3.839 6.574l-.978 3.626 4.225-2.787A11.26 11.26 0 0012 18.6c5.523 0 10-3.477 10-7.8S17.523 3 12 3z"/></svg>
-          카카오톡으로 공유하기
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => shareToKakao(benefit.name, benefit.benefit.amount, `/benefits/${benefit.id}`)}
+            className="flex-1 py-2 text-xs font-semibold bg-[#FEE500] hover:bg-yellow-300 text-[#3C1E1E] rounded-xl transition-colors flex items-center justify-center gap-1.5"
+            aria-label="카카오톡으로 공유"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.71 1.517 5.098 3.839 6.574l-.978 3.626 4.225-2.787A11.26 11.26 0 0012 18.6c5.523 0 10-3.477 10-7.8S17.523 3 12 3z"/></svg>
+            카카오톡
+          </button>
+          <button
+            onClick={() => shareToNaverBand(benefit.name, `/benefits/${benefit.id}`)}
+            className="flex-1 py-2 text-xs font-semibold bg-[#03C75A] hover:bg-green-500 text-white rounded-xl transition-colors flex items-center justify-center gap-1.5"
+            aria-label="네이버 밴드로 공유"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 13.5h-9v-1.5l3-4.5H7.5V8h9v1.5l-3 4.5h3V15.5z"/></svg>
+            네이버 밴드
+          </button>
+        </div>
       </div>
     </article>
   );

@@ -80,6 +80,12 @@ export default function RootLayout({
     <html lang="ko" className={geistSans.variable}>
       {/* AdSense 크롤러가 HTML 소스에서 직접 감지할 수 있도록 <head>에 삽입 */}
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="복지로드" />
+        <meta name="theme-color" content="#059669" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7178675306403545"

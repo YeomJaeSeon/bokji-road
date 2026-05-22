@@ -50,6 +50,7 @@ export default function HeaderClient() {
       <a href="/#roadmap" className="hover:text-emerald-600 transition-colors hidden sm:block text-sm text-gray-600">로드맵</a>
       <a href="/#benefits" className="hover:text-emerald-600 transition-colors hidden sm:block text-sm text-gray-600">혜택 찾기</a>
       <Link href="/calculator" className="hover:text-emerald-600 transition-colors hidden sm:block text-sm text-gray-600 font-semibold">계산기</Link>
+      <Link href="/favorites" className="hover:text-emerald-600 transition-colors hidden sm:block text-sm text-gray-600">즐겨찾기</Link>
       <a
         href="https://www.bokjiro.go.kr"
         target="_blank"

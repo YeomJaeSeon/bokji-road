@@ -1,0 +1,19 @@
+{
+  "name": "복지로드 — 내 맞춤 복지혜택 찾기",
+  "short_name": "복지로드",
+  "description": "임신·출산부터 노년까지, 지금 내가 받을 수 있는 대한민국 복지혜택을 1분 안에 확인하세요.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["government", "finance", "lifestyle"],
+  "lang": "ko"
+}
