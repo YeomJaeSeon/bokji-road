@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useCallback, Fragment } from "react";
+import { useState, useRef, useCallback, Fragment, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useUserProfile } from "@/hooks/useUserProfile";
 import { useFilteredBenefits, useEligibleCount } from "@/hooks/useFilteredBenefits";
 import RoadmapTimeline, { LIFECYCLE_STAGES } from "@/components/RoadmapTimeline";
@@ -15,12 +16,17 @@ import FaqSection from "@/components/FaqSection";
 const allBenefits = benefitsData as Benefit[];
 
 export default function HomePage() {
-  // isLoaded를 렌더링 차단에 사용하지 않음 — SSR 시 기본값(defaultProfile)으로 즉시 렌더
-  // 검색 엔진 봇이 전체 콘텐츠를 볼 수 있도록 유지
   const { profile, updateProfile, getLifecycleStage } = useUserProfile();
   const [showForm, setShowForm] = useState(false);
   const [activeCategory, setActiveCategory] = useState<LifecycleCategory | null>(null);
   const benefitsRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("open") === "form") {
+      setShowForm(true);
+    }
+  }, [searchParams]);
 
   const filteredBenefits = useFilteredBenefits(allBenefits, profile);
   const { eligible, possible } = useEligibleCount(allBenefits, profile);
