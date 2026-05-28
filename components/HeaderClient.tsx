@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import BrandIcon from "@/components/BrandIcon";
 
 const NAV_LINKS = [
   { href: "/#roadmap",    label: "로드맵" },
@@ -93,7 +94,9 @@ export default function HeaderClient() {
           <div className="absolute right-0 top-0 h-full w-72 bg-white shadow-2xl flex flex-col">
             {/* 드로어 헤더 */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-              <span className="text-lg font-extrabold text-emerald-700">🗺️ 복지로드</span>
+              <span className="flex items-center gap-2 text-lg font-extrabold text-emerald-700">
+                <BrandIcon size={22} />복지로드
+              </span>
               <button onClick={() => setMenuOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 text-xl">
                 ✕
               </button>

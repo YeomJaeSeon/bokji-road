@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { AdSlotHorizontal } from "@/components/AdSlot";
+import BrandIcon from "@/components/BrandIcon";
 
 export default function NotFound() {
   return (
     <div className="max-w-xl mx-auto px-4 py-20 text-center space-y-6">
-      <div className="text-7xl">🗺️</div>
+      <div className="flex justify-center"><BrandIcon size={80} /></div>
       <h1 className="text-3xl font-extrabold text-gray-800">페이지를 찾을 수 없어요</h1>
       <p className="text-gray-500 text-sm leading-relaxed">
         주소가 잘못됐거나 삭제된 페이지입니다.<br />

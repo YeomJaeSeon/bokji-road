@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import HeaderClient from "@/components/HeaderClient";
 import BottomNav from "@/components/BottomNav";
+import BrandIcon from "@/components/BrandIcon";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
@@ -103,7 +104,7 @@ export default function RootLayout({
         <header className="bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="/" className="flex items-center gap-2">
-              <span className="text-2xl" aria-hidden="true">🗺️</span>
+              <BrandIcon size={28} />
               <span className="text-lg font-extrabold text-emerald-700">복지로드</span>
             </a>
             <HeaderClient />
@@ -151,7 +152,9 @@ export default function RootLayout({
             </div>
 
             <div className="border-t border-gray-100 pt-5 text-center space-y-2">
-              <p className="font-semibold text-gray-700">복지로드 🗺️</p>
+              <p className="font-semibold text-gray-700 flex items-center justify-center gap-1.5">
+                <BrandIcon size={16} />복지로드
+              </p>
               <p className="text-xs">본 서비스는 정부 공식 기관이 아닌 민간 정보 제공 서비스입니다. 수혜 여부는 담당 기관에서 최종 확인하세요.</p>
               <p className="text-xs">
                 <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">복지로(bokjiro.go.kr)</a>
