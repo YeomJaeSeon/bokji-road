@@ -295,6 +295,15 @@ export default function HomePage() {
                 <p className="text-xs text-emerald-600 mt-2 font-semibold">비교 보기 →</p>
               </div>
             </a>
+            <a href="/compare/basic-living"
+              className="group bg-white rounded-2xl border border-gray-100 p-5 hover:border-emerald-300 hover:shadow-md transition-all flex items-start gap-4">
+              <span className="text-3xl">🏠</span>
+              <div>
+                <p className="font-bold text-gray-800 group-hover:text-emerald-700 transition-colors">기초생활수급 4대 급여 비교</p>
+                <p className="text-sm text-gray-500 mt-1">생계·주거·의료·교육급여 조건과 금액 한눈에</p>
+                <p className="text-xs text-emerald-600 mt-2 font-semibold">비교 보기 →</p>
+              </div>
+            </a>
           </div>
         </div>
       </section>

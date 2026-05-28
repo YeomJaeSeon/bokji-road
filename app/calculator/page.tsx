@@ -4,24 +4,25 @@ import { useState } from "react";
 import Link from "next/link";
 import AdSlot, { AdSlotHorizontal } from "@/components/AdSlot";
 
-// 2025년 실업급여 하한액: 최저임금(10,030원) × 80% × 8시간
-const MIN_DAILY_BENEFIT = 64192;
+// 2026년 실업급여: 상한 68,100원/일, 하한 66,240원/일
+const MAX_DAILY_BENEFIT = 68100;
+const MIN_DAILY_BENEFIT = 66240;
 
 // ── 실업급여 ────────────────────────────────────────────────────
 function calcUnemployment(dailyWage: number, workMonths: number) {
   if (!dailyWage || !workMonths) return null;
   const raw = Math.round(dailyWage * 0.6);
-  const daily = Math.min(Math.max(raw, MIN_DAILY_BENEFIT), 66000);
+  const daily = Math.min(Math.max(raw, MIN_DAILY_BENEFIT), MAX_DAILY_BENEFIT);
   const days = workMonths < 12 ? 120 : workMonths < 36 ? 150 : workMonths < 60 ? 180 : workMonths < 120 ? 210 : 240;
   return { daily, total: daily * days, days, appliedMin: raw < MIN_DAILY_BENEFIT };
 }
 
-// ── 기초연금 ────────────────────────────────────────────────────
+// ── 기초연금 (2026년 기준) ──────────────────────────────────────
 function calcBasicPension(income: number, assets: number, isCouple: boolean) {
   if (income === 0 && assets === 0) return null;
   const incomeRecognition = income + Math.round((assets * 0.04) / 12);
-  const threshold = isCouple ? 3680000 : 2130000;
-  const maxAmount = isCouple ? 560000 : 334810;
+  const threshold = isCouple ? 3952000 : 2470000;
+  const maxAmount = isCouple ? 559520 : 349700;
   if (incomeRecognition > threshold) return { monthly: 0, reason: "소득인정액이 선정기준액을 초과하여 수급 대상이 아닙니다." };
   const cutoff = threshold - maxAmount;
   const monthly = incomeRecognition <= cutoff ? maxAmount : Math.max(20000, threshold - incomeRecognition);
@@ -298,7 +299,7 @@ export default function CalculatorPage() {
           <div className="space-y-5">
             <ResetButton onReset={resetMap.unemployment} />
             <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 text-sm text-blue-700">
-              퇴직 전 3개월 평균 일급의 <strong>60%</strong>, 최대 <strong>66,000원/일</strong>·최소 <strong>64,192원/일</strong>(2025년 기준)로 계산됩니다.
+              퇴직 전 3개월 평균 일급의 <strong>60%</strong>, 최대 <strong>68,100원/일</strong>·최소 <strong>66,240원/일</strong>(2026년 기준)로 계산됩니다.
             </div>
             <InputField label="퇴직 전 하루 평균 임금 (원)" value={uWage} onChange={setUWage} placeholder="예: 100000" hint="월급 ÷ 30 (월 300만원 → 100,000원)" />
             <InputField label="고용보험 가입 기간 (개월)" value={uMonths} onChange={setUMonths} placeholder="예: 24" />
@@ -311,7 +312,7 @@ export default function CalculatorPage() {
                   ))}
                 </div>
                 {uRes.appliedMin && (
-                  <p className="text-xs text-amber-600 mt-3">⚠ 60% 계산값이 하한액보다 낮아 최소 지급액(64,192원)이 적용됐습니다.</p>
+                  <p className="text-xs text-amber-600 mt-3">⚠ 60% 계산값이 하한액보다 낮아 최소 지급액(66,240원)이 적용됐습니다.</p>
                 )}
                 <p className="text-xs text-gray-500 mt-2">* 이직 확인, 수급자격 인정 등 조건 충족 시 지급됩니다.</p>
               </ResultBox>
@@ -325,7 +326,7 @@ export default function CalculatorPage() {
           <div className="space-y-5">
             <ResetButton onReset={resetMap.pension} />
             <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 text-sm text-blue-700">
-              만 65세 이상, 소득하위 70% 해당 시 최대 <strong>334,810원/월</strong>(단독) 지급됩니다.
+              만 65세 이상, 소득하위 70% 해당 시 최대 <strong>349,700원/월</strong>(단독) 지급됩니다. (2026년 기준 선정기준액 247만원)
             </div>
             <InputField label="월 소득 합계 (원)" value={pIncome} onChange={setPIncome} placeholder="예: 800000" hint="근로·사업·이자·배당 합산" />
             <InputField label="재산 합계 (원)" value={pAssets} onChange={setPAssets} placeholder="예: 100000000" hint="부동산·금융재산 합산 (부채 차감 가능)" />

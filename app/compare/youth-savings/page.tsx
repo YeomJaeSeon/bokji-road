@@ -4,7 +4,20 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "청년도약계좌 vs 청년희망적금 차이점 비교 | 복지로드",
-  description: "청년도약계좌와 청년희망적금의 가입 조건, 지원 금액, 만기 기간, 혜택 차이를 한눈에 비교해보세요.",
+  description: "청년도약계좌와 청년희망적금의 가입 조건, 지원 금액, 만기 기간, 혜택 차이를 한눈에 비교해보세요. 어떤 상품이 더 유리한지 쉽게 확인하세요.",
+  keywords: [
+    "청년도약계좌", "청년희망적금", "청년도약계좌 vs 청년희망적금", "청년도약계좌 조건",
+    "청년도약계좌 신청", "청년 적금 비교", "청년 정부지원 적금", "2026 청년 혜택",
+  ],
+  alternates: { canonical: "https://bokjiroad.com/compare/youth-savings" },
+  openGraph: {
+    title: "청년도약계좌 vs 청년희망적금 차이점 비교 | 복지로드",
+    description: "가입 조건·정부기여금·만기수령액을 한눈에 비교해보세요.",
+    type: "article",
+    locale: "ko_KR",
+    url: "https://bokjiroad.com/compare/youth-savings",
+    siteName: "복지로드",
+  },
 };
 
 const ITEMS = [
@@ -61,9 +74,21 @@ const ITEMS = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "청년도약계좌 vs 청년희망적금 차이점 비교",
+  description: "청년도약계좌와 청년희망적금의 가입 조건, 정부기여금, 만기 수령액 비교",
+  author: { "@type": "Organization", name: "복지로드" },
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
+  url: "https://bokjiroad.com/compare/youth-savings",
+  inLanguage: "ko",
+};
+
 export default function YouthSavingsComparePage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Link href="/" className="text-sm text-emerald-600 hover:text-emerald-700">← 홈으로</Link>
 
       <h1 className="text-2xl font-extrabold text-gray-900 mt-3 mb-1">

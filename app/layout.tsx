@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import HeaderClient from "@/components/HeaderClient";
+import BottomNav from "@/components/BottomNav";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
@@ -110,6 +111,7 @@ export default function RootLayout({
         </header>
 
         <main className="flex-1 pb-20 md:pb-0">{children}</main>
+        <BottomNav />
 
         <footer className="bg-white border-t border-gray-100 py-8 px-4 text-sm text-gray-500 mt-8">
           <div className="max-w-4xl mx-auto">
@@ -135,6 +137,7 @@ export default function RootLayout({
                 <div className="space-y-1.5">
                   <a href="/compare/youth-savings" className="block hover:text-emerald-600">청년도약계좌 비교</a>
                   <a href="/compare/pension-types" className="block hover:text-emerald-600">기초연금 vs 노령연금</a>
+                  <a href="/compare/basic-living" className="block hover:text-emerald-600">기초생활수급 4대 급여</a>
                 </div>
               </div>
               <div>

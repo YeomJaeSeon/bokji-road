@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "/favorites",   label: "즐겨찾기" },
   { href: "/compare/youth-savings",  label: "청년도약계좌 비교" },
   { href: "/compare/pension-types",  label: "연금 비교" },
+  { href: "/compare/basic-living",   label: "기초생활수급 비교" },
 ];
 
 export default function HeaderClient() {

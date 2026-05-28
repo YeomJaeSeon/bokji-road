@@ -5,6 +5,19 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "기초연금 vs 노령연금(국민연금) 차이점 비교 | 복지로드",
   description: "기초연금과 노령연금(국민연금)의 수급 자격, 지급 금액, 신청 방법 차이를 쉽게 비교해보세요. 두 연금을 동시에 받을 수 있는지도 확인하세요.",
+  keywords: [
+    "기초연금 vs 노령연금", "기초연금 국민연금 차이", "기초연금 조건", "노령연금 수령액",
+    "기초연금 동시수령", "기초연금 신청방법", "2026 기초연금", "연금 비교",
+  ],
+  alternates: { canonical: "https://bokjiroad.com/compare/pension-types" },
+  openGraph: {
+    title: "기초연금 vs 노령연금(국민연금) 비교 | 복지로드",
+    description: "수급 조건·금액·동시수령 여부를 한눈에 비교해보세요.",
+    type: "article",
+    locale: "ko_KR",
+    url: "https://bokjiroad.com/compare/pension-types",
+    siteName: "복지로드",
+  },
 };
 
 const ITEMS = [
@@ -20,9 +33,21 @@ const ITEMS = [
   { category: "신청처",          a: "주민센터, 복지로, 국민연금공단", b: "국민연금공단, 복지로" },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "기초연금 vs 노령연금(국민연금) 차이점 비교",
+  description: "기초연금과 노령연금의 수급 자격, 지급 금액, 동시 수령 여부 비교",
+  author: { "@type": "Organization", name: "복지로드" },
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
+  url: "https://bokjiroad.com/compare/pension-types",
+  inLanguage: "ko",
+};
+
 export default function PensionTypesComparePage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Link href="/" className="text-sm text-emerald-600 hover:text-emerald-700">← 홈으로</Link>
 
       <h1 className="text-2xl font-extrabold text-gray-900 mt-3 mb-1">

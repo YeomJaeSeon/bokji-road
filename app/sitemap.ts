@@ -54,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${SITE_URL}/compare/basic-living`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/about`,
       lastModified: new Date("2026-05-01"),
       changeFrequency: "monthly",
