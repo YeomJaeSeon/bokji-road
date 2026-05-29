@@ -16,6 +16,16 @@ export const metadata: Metadata = {
 
 const GUIDES = [
   {
+    href: "/guides/youth-guide",
+    icon: "🧑",
+    color: "bg-lime-50 border-lime-200",
+    tag: "청년",
+    tagColor: "bg-lime-100 text-lime-700",
+    title: "2026 청년 복지혜택 완전 가이드",
+    desc: "청년도약계좌·월세지원·취업지원·근로장려금까지 만 19~34세가 받을 수 있는 혜택 총정리.",
+    readTime: "약 7분",
+  },
+  {
     href: "/guides/unemployment-guide",
     icon: "💼",
     color: "bg-blue-50 border-blue-200",

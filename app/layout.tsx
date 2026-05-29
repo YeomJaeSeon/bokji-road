@@ -123,14 +123,17 @@ export default function RootLayout({
                   <a href="/#benefits" className="block hover:text-emerald-600">전체 혜택 보기</a>
                   <a href="/#roadmap" className="block hover:text-emerald-600">생애주기 로드맵</a>
                   <a href="/favorites" className="block hover:text-emerald-600">즐겨찾기</a>
+                  <a href="/news" className="block hover:text-emerald-600">복지 뉴스</a>
                 </div>
               </div>
               <div>
-                <p className="font-bold text-gray-700 mb-2">계산기</p>
+                <p className="font-bold text-gray-700 mb-2">신청 가이드</p>
                 <div className="space-y-1.5">
-                  <a href="/calculator" className="block hover:text-emerald-600">실업급여 계산기</a>
-                  <a href="/calculator" className="block hover:text-emerald-600">근로장려금 계산기</a>
-                  <a href="/calculator" className="block hover:text-emerald-600">기초연금 계산기</a>
+                  <a href="/guides/youth-guide" className="block hover:text-emerald-600">청년 혜택 총정리</a>
+                  <a href="/guides/unemployment-guide" className="block hover:text-emerald-600">실업급여 가이드</a>
+                  <a href="/guides/basic-pension-guide" className="block hover:text-emerald-600">기초연금 가이드</a>
+                  <a href="/guides/eitc-guide" className="block hover:text-emerald-600">근로장려금 가이드</a>
+                  <a href="/guides/basic-living-guide" className="block hover:text-emerald-600">기초생활수급 가이드</a>
                 </div>
               </div>
               <div>
@@ -142,12 +145,12 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <p className="font-bold text-gray-700 mb-2">신청 가이드</p>
+                <p className="font-bold text-gray-700 mb-2">서비스</p>
                 <div className="space-y-1.5">
-                  <a href="/guides/unemployment-guide" className="block hover:text-emerald-600">실업급여 가이드</a>
-                  <a href="/guides/basic-pension-guide" className="block hover:text-emerald-600">기초연금 가이드</a>
-                  <a href="/guides/eitc-guide" className="block hover:text-emerald-600">근로장려금 가이드</a>
-                  <a href="/guides/basic-living-guide" className="block hover:text-emerald-600">기초생활수급 가이드</a>
+                  <a href="/calculator" className="block hover:text-emerald-600">복지 계산기</a>
+                  <a href="/about" className="block hover:text-emerald-600">서비스 소개</a>
+                  <a href="/contact" className="block hover:text-emerald-600">문의하기</a>
+                  <a href="/privacy" className="block hover:text-emerald-600">개인정보처리방침</a>
                 </div>
               </div>
             </div>

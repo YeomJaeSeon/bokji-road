@@ -66,6 +66,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/news`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/news/2026-welfare-changes`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/news/how-to-use-bokjiro`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/contact`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/guides/youth-guide`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/guides/unemployment-guide`,
       lastModified: new Date("2026-05-28"),
       changeFrequency: "monthly",

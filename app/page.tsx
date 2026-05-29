@@ -144,6 +144,20 @@ export default function HomePage() {
         onClearProfile={clearProfile}
       />
 
+      {/* 서비스 소개 편집 텍스트 */}
+      <section className="max-w-4xl mx-auto px-4 py-6">
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 text-sm text-gray-600 leading-relaxed space-y-2">
+          <p>
+            <strong className="text-gray-800">복지로드</strong>는 임신·출산부터 노년까지 생애주기별 대한민국 정부 복지혜택 {allBenefits.length}가지를 한눈에 찾을 수 있는 무료 정보 서비스입니다.
+            기초연금, 실업급여, 부모급여, 근로장려금 등 복잡한 복지 제도를 쉽게 이해하고 직접 신청할 수 있도록 도와드립니다.
+          </p>
+          <p>
+            나이·지역·소득·가구 형태를 입력하면 지금 당장 받을 수 있는 맞춤 혜택만 골라 보여드립니다.
+            로그인 없이 무료로 이용하며, 입력한 정보는 내 기기에만 저장됩니다.
+          </p>
+        </div>
+      </section>
+
       {/* AD SLOT 1: 대시보드 아래, 로드맵 위 */}
       <AdSlotHorizontal slot="1234567890" />
 
