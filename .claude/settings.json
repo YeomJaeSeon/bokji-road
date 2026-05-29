@@ -3,7 +3,8 @@
     "allow": [
       "Bash(node -e \"const d=require\\('/Users/jieon/jaeseon/projects/bokji-road/data/benefits.json'\\); const cats={}; d.forEach\\(b=>{cats[b.category]=\\(cats[b.category]||0\\)+1}\\); console.log\\(cats\\);\")",
       "Bash(git commit -m ' *)",
-      "Bash(mkdir -p /Users/jieon/jaeseon/projects/bokji-road/app/guides/unemployment-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/basic-pension-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/parental-allowance-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/eitc-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/basic-living-guide)"
+      "Bash(mkdir -p /Users/jieon/jaeseon/projects/bokji-road/app/guides/unemployment-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/basic-pension-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/parental-allowance-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/eitc-guide /Users/jieon/jaeseon/projects/bokji-road/app/guides/basic-living-guide)",
+      "Bash(git commit *)"
     ],
     "additionalDirectories": [
       "/Users/jieon/jaeseon/projects/bokji-road/app/guides",

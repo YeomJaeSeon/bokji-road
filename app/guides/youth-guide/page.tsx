@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "청년 복지혜택", "청년 지원금", "청년도약계좌", "청년월세 지원",
     "국민취업지원제도", "청년 취업 지원", "청년 생활비 지원", "2026 청년 혜택",
   ],
-  alternates: { canonical: "https://bokjiroad.com/guides/youth-guide" },
+  alternates: { canonical: "https://bokji-road.vercel.app/guides/youth-guide" },
   openGraph: {
     title: "2026 청년 복지혜택 완전 가이드 | 복지로드",
     description: "청년도약계좌, 월세 지원, 취업 지원, 생활비까지 청년 혜택 총정리.",
     type: "article", locale: "ko_KR",
-    url: "https://bokjiroad.com/guides/youth-guide", siteName: "복지로드",
+    url: "https://bokji-road.vercel.app/guides/youth-guide", siteName: "복지로드",
   },
 };
 
@@ -23,8 +23,8 @@ const jsonLd = {
   "@context": "https://schema.org", "@type": "Article",
   headline: "2026 청년 복지혜택 완전 가이드",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/guides/youth-guide",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/guides/youth-guide",
   inLanguage: "ko", datePublished: "2026-05-01", dateModified: "2026-05-28",
 };
 

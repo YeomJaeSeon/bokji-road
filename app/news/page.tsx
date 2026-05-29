@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "2026 복지혜택 변경", "복지 정책 뉴스", "기초연금 인상", "실업급여 변경",
     "부모급여 2026", "근로장려금 변경", "복지 최신 정보",
   ],
-  alternates: { canonical: "https://bokjiroad.com/news" },
+  alternates: { canonical: "https://bokji-road.vercel.app/news" },
 };
 
 const ARTICLES = [

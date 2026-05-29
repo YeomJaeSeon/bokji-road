@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "문의하기 | 복지로드",
   description:
     "복지로드에 대한 문의, 오류 신고, 콘텐츠 제안을 보내주세요. 복지 정보 오류나 최신 정보 업데이트 요청도 환영합니다.",
-  alternates: { canonical: "https://bokjiroad.com/contact" },
+  alternates: { canonical: "https://bokji-road.vercel.app/contact" },
 };
 
 export default function ContactPage() {

@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "복지로 사용 방법", "복지로 신청", "bokjiro.go.kr", "온라인 복지 신청",
     "복지 온라인 신청 방법", "복지혜택 신청하는 법", "주민센터 안 가고 복지 신청",
   ],
-  alternates: { canonical: "https://bokjiroad.com/news/how-to-use-bokjiro" },
+  alternates: { canonical: "https://bokji-road.vercel.app/news/how-to-use-bokjiro" },
   openGraph: {
     title: "복지로 사이트에서 복지 신청하는 방법 | 복지로드",
     description: "집에서 온라인으로 복지혜택을 신청하는 단계별 방법.",
     type: "article", locale: "ko_KR",
-    url: "https://bokjiroad.com/news/how-to-use-bokjiro", siteName: "복지로드",
+    url: "https://bokji-road.vercel.app/news/how-to-use-bokjiro", siteName: "복지로드",
   },
 };
 
@@ -25,7 +25,7 @@ const jsonLd = {
   name: "복지로(bokjiro.go.kr)에서 복지혜택 온라인 신청하는 방법",
   description: "복지로 사이트 접속부터 신청서 제출까지 단계별 안내",
   author: { "@type": "Organization", name: "복지로드" },
-  url: "https://bokjiroad.com/news/how-to-use-bokjiro",
+  url: "https://bokji-road.vercel.app/news/how-to-use-bokjiro",
   inLanguage: "ko",
   step: [
     { "@type": "HowToStep", name: "복지로 접속 및 로그인", text: "bokjiro.go.kr 접속 후 공동인증서 또는 간편인증으로 로그인" },

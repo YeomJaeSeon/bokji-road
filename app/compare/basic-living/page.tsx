@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     "기초생활수급 조건", "기준 중위소득", "생계급여 신청", "주거급여 신청",
     "기초생활보장제도", "2026 기초생활수급", "차상위계층",
   ],
-  alternates: { canonical: "https://bokjiroad.com/compare/basic-living" },
+  alternates: { canonical: "https://bokji-road.vercel.app/compare/basic-living" },
   openGraph: {
     title: "기초생활수급 4대 급여 비교 | 복지로드",
     description: "생계·주거·의료·교육급여 수급 기준과 지급 금액을 한눈에 비교하세요.",
     type: "article",
     locale: "ko_KR",
-    url: "https://bokjiroad.com/compare/basic-living",
+    url: "https://bokji-road.vercel.app/compare/basic-living",
     siteName: "복지로드",
   },
 };
@@ -28,8 +28,8 @@ const jsonLd = {
   headline: "기초생활수급자 4대 급여 비교 — 생계·주거·의료·교육급여",
   description: "기초생활수급자 4대 급여의 수급 기준, 지급 금액, 신청 방법 비교",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/compare/basic-living",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/compare/basic-living",
   inLanguage: "ko",
 };
 

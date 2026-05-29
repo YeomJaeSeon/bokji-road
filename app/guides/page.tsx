@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "부모급여 신청", "근로장려금 신청", "기초생활수급자 신청",
     "복지급여 가이드", "2026 복지 신청",
   ],
-  alternates: { canonical: "https://bokjiroad.com/guides" },
+  alternates: { canonical: "https://bokji-road.vercel.app/guides" },
 };
 
 const GUIDES = [

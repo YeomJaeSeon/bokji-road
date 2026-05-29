@@ -5,7 +5,7 @@ import benefitsData from "@/data/benefits.json";
 import type { Benefit } from "@/types";
 import AdSlot, { AdSlotHorizontal } from "@/components/AdSlot";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokji-road.vercel.app";
 const allBenefits = benefitsData as Benefit[];
 
 // ── 카테고리별 SEO 메타 정보 ──────────────────────────────────────────────

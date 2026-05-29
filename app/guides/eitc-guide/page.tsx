@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "근로장려금 신청", "자녀장려금 신청", "근로장려금 조건", "근로장려금 금액",
     "근로장려금 자녀장려금 동시신청", "2026 근로장려금", "홈택스 장려금 신청", "손택스",
   ],
-  alternates: { canonical: "https://bokjiroad.com/guides/eitc-guide" },
+  alternates: { canonical: "https://bokji-road.vercel.app/guides/eitc-guide" },
   openGraph: {
     title: "근로장려금·자녀장려금 신청 완벽 가이드 2026 | 복지로드",
     description: "가구 유형별 지급액부터 5월 홈택스 신청까지 한 번에.",
     type: "article", locale: "ko_KR",
-    url: "https://bokjiroad.com/guides/eitc-guide", siteName: "복지로드",
+    url: "https://bokji-road.vercel.app/guides/eitc-guide", siteName: "복지로드",
   },
 };
 
@@ -23,8 +23,8 @@ const jsonLd = {
   "@context": "https://schema.org", "@type": "Article",
   headline: "근로장려금·자녀장려금 신청 완벽 가이드 2026",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/guides/eitc-guide",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/guides/eitc-guide",
   inLanguage: "ko", datePublished: "2026-05-01", dateModified: "2026-05-28",
 };
 

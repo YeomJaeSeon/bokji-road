@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "부모급여 신청", "부모급여 금액", "아동수당 신청", "부모급여 아동수당 차이",
     "어린이집 부모급여", "2026 부모급여", "출산 복지혜택", "영아 수당",
   ],
-  alternates: { canonical: "https://bokjiroad.com/guides/parental-allowance-guide" },
+  alternates: { canonical: "https://bokji-road.vercel.app/guides/parental-allowance-guide" },
   openGraph: {
     title: "부모급여·아동수당 신청 가이드 2026 | 복지로드",
     description: "0세 100만원, 1세 50만원 부모급여 신청 방법과 아동수당까지 한 번에.",
     type: "article", locale: "ko_KR",
-    url: "https://bokjiroad.com/guides/parental-allowance-guide", siteName: "복지로드",
+    url: "https://bokji-road.vercel.app/guides/parental-allowance-guide", siteName: "복지로드",
   },
 };
 
@@ -23,8 +23,8 @@ const jsonLd = {
   "@context": "https://schema.org", "@type": "Article",
   headline: "부모급여·아동수당 신청 가이드 2026",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/guides/parental-allowance-guide",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/guides/parental-allowance-guide",
   inLanguage: "ko", datePublished: "2026-05-01", dateModified: "2026-05-28",
 };
 

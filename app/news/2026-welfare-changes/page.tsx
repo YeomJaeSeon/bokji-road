@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "2026 복지혜택 변경", "2026 기초연금 인상", "2026 실업급여", "2026 기준 중위소득",
     "2026 부모급여", "2026 근로장려금", "복지혜택 달라진점", "2026 복지 정책",
   ],
-  alternates: { canonical: "https://bokjiroad.com/news/2026-welfare-changes" },
+  alternates: { canonical: "https://bokji-road.vercel.app/news/2026-welfare-changes" },
   openGraph: {
     title: "2026년 달라지는 복지혜택 총정리 | 복지로드",
     description: "기초연금·실업급여·근로장려금 등 2026년 주요 변경 사항.",
     type: "article", locale: "ko_KR",
-    url: "https://bokjiroad.com/news/2026-welfare-changes", siteName: "복지로드",
+    url: "https://bokji-road.vercel.app/news/2026-welfare-changes", siteName: "복지로드",
   },
 };
 
@@ -25,8 +25,8 @@ const jsonLd = {
   headline: "2026년 달라지는 복지혜택 총정리",
   description: "2026년 기초연금·실업급여·근로장려금·부모급여 등 주요 복지 정책 변경 사항 총정리",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/news/2026-welfare-changes",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/news/2026-welfare-changes",
   datePublished: "2026-01-01",
   dateModified: "2026-05-28",
   inLanguage: "ko",

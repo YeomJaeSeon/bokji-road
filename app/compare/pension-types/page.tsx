@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     "기초연금 vs 노령연금", "기초연금 국민연금 차이", "기초연금 조건", "노령연금 수령액",
     "기초연금 동시수령", "기초연금 신청방법", "2026 기초연금", "연금 비교",
   ],
-  alternates: { canonical: "https://bokjiroad.com/compare/pension-types" },
+  alternates: { canonical: "https://bokji-road.vercel.app/compare/pension-types" },
   openGraph: {
     title: "기초연금 vs 노령연금(국민연금) 비교 | 복지로드",
     description: "수급 조건·금액·동시수령 여부를 한눈에 비교해보세요.",
     type: "article",
     locale: "ko_KR",
-    url: "https://bokjiroad.com/compare/pension-types",
+    url: "https://bokji-road.vercel.app/compare/pension-types",
     siteName: "복지로드",
   },
 };
@@ -39,8 +39,8 @@ const jsonLd = {
   headline: "기초연금 vs 노령연금(국민연금) 차이점 비교",
   description: "기초연금과 노령연금의 수급 자격, 지급 금액, 동시 수령 여부 비교",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/compare/pension-types",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/compare/pension-types",
   inLanguage: "ko",
 };
 

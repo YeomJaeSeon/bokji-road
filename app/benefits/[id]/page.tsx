@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   return allBenefits.map((b) => ({ id: b.id }));
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokji-road.vercel.app";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;

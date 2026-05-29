@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "기초생활수급자 신청", "기초생활수급 조건", "생계급여 신청", "주거급여 신청",
     "의료급여 신청", "교육급여 신청", "기초생활보장 신청", "2026 기초생활수급",
   ],
-  alternates: { canonical: "https://bokjiroad.com/guides/basic-living-guide" },
+  alternates: { canonical: "https://bokji-road.vercel.app/guides/basic-living-guide" },
   openGraph: {
     title: "기초생활수급자 신청 방법 완벽 가이드 2026 | 복지로드",
     description: "소득인정액부터 4대 급여 신청까지 한 번에 확인하세요.",
     type: "article", locale: "ko_KR",
-    url: "https://bokjiroad.com/guides/basic-living-guide", siteName: "복지로드",
+    url: "https://bokji-road.vercel.app/guides/basic-living-guide", siteName: "복지로드",
   },
 };
 
@@ -23,8 +23,8 @@ const jsonLd = {
   "@context": "https://schema.org", "@type": "Article",
   headline: "기초생활수급자 신청 방법 완벽 가이드 2026",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/guides/basic-living-guide",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/guides/basic-living-guide",
   inLanguage: "ko", datePublished: "2026-05-01", dateModified: "2026-05-28",
 };
 

@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     "복지급여 계산", "정부지원금 계산기", "2026 복지 계산기",
     "자녀장려금 신청", "근로장려금 자녀장려금 동시신청",
   ],
-  alternates: { canonical: "https://bokjiroad.com/calculator" },
+  alternates: { canonical: "https://bokji-road.vercel.app/calculator" },
   openGraph: {
     title: "복지 수령액 계산기 | 복지로드",
     description: "실업급여·근로장려금·기초연금·건강보험료 예상 수령액을 간단히 계산하세요.",
     type: "website",
     locale: "ko_KR",
-    url: "https://bokjiroad.com/calculator",
+    url: "https://bokji-road.vercel.app/calculator",
     siteName: "복지로드",
   },
 };

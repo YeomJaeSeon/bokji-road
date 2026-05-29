@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     "청년도약계좌", "청년희망적금", "청년도약계좌 vs 청년희망적금", "청년도약계좌 조건",
     "청년도약계좌 신청", "청년 적금 비교", "청년 정부지원 적금", "2026 청년 혜택",
   ],
-  alternates: { canonical: "https://bokjiroad.com/compare/youth-savings" },
+  alternates: { canonical: "https://bokji-road.vercel.app/compare/youth-savings" },
   openGraph: {
     title: "청년도약계좌 vs 청년희망적금 차이점 비교 | 복지로드",
     description: "가입 조건·정부기여금·만기수령액을 한눈에 비교해보세요.",
     type: "article",
     locale: "ko_KR",
-    url: "https://bokjiroad.com/compare/youth-savings",
+    url: "https://bokji-road.vercel.app/compare/youth-savings",
     siteName: "복지로드",
   },
 };
@@ -80,8 +80,8 @@ const jsonLd = {
   headline: "청년도약계좌 vs 청년희망적금 차이점 비교",
   description: "청년도약계좌와 청년희망적금의 가입 조건, 정부기여금, 만기 수령액 비교",
   author: { "@type": "Organization", name: "복지로드" },
-  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokjiroad.com" },
-  url: "https://bokjiroad.com/compare/youth-savings",
+  publisher: { "@type": "Organization", name: "복지로드", url: "https://bokji-road.vercel.app" },
+  url: "https://bokji-road.vercel.app/compare/youth-savings",
   inLanguage: "ko",
 };
 

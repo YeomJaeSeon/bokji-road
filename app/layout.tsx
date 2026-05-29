@@ -5,7 +5,7 @@ import BottomNav from "@/components/BottomNav";
 import BrandIcon from "@/components/BrandIcon";
 import "./globals.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokji-road.vercel.app";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
