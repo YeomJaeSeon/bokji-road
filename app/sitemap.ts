@@ -60,6 +60,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${SITE_URL}/guides`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/unemployment-guide`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/guides/basic-pension-guide`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/guides/parental-allowance-guide`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/guides/eitc-guide`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/guides/basic-living-guide`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/about`,
       lastModified: new Date("2026-05-01"),
       changeFrequency: "monthly",

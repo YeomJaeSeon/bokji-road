@@ -272,6 +272,30 @@ export default function HomePage() {
         )}
       </div>
 
+      {/* 신청 가이드 섹션 */}
+      <section className="py-8 px-4 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-lg font-bold text-gray-800 mb-1">📋 복지혜택 신청 가이드</h2>
+          <p className="text-sm text-gray-500 mb-4">자격 조건부터 신청 방법까지, 단계별로 쉽게 알려드려요.</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[
+              { href: "/guides/unemployment-guide", icon: "💼", label: "실업급여" },
+              { href: "/guides/basic-pension-guide", icon: "👴", label: "기초연금" },
+              { href: "/guides/parental-allowance-guide", icon: "👶", label: "부모급여" },
+              { href: "/guides/eitc-guide", icon: "💰", label: "근로장려금" },
+              { href: "/guides/basic-living-guide", icon: "🏠", label: "기초생활수급" },
+              { href: "/guides", icon: "📋", label: "전체 가이드 보기" },
+            ].map((item) => (
+              <a key={item.href} href={item.href}
+                className="flex items-center gap-2.5 bg-gray-50 hover:bg-emerald-50 hover:border-emerald-200 border border-gray-100 rounded-xl px-4 py-3 transition-colors">
+                <span className="text-xl">{item.icon}</span>
+                <span className="text-sm font-semibold text-gray-700">{item.label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 비교 가이드 섹션 */}
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">

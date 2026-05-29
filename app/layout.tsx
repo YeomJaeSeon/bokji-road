@@ -142,11 +142,12 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <p className="font-bold text-gray-700 mb-2">서비스</p>
+                <p className="font-bold text-gray-700 mb-2">신청 가이드</p>
                 <div className="space-y-1.5">
-                  <a href="/about" className="block hover:text-emerald-600">서비스 소개</a>
-                  <a href="/privacy" className="block hover:text-emerald-600">개인정보처리방침</a>
-                  <a href="mailto:a89541457@gmail.com" className="block hover:text-emerald-600">문의하기</a>
+                  <a href="/guides/unemployment-guide" className="block hover:text-emerald-600">실업급여 가이드</a>
+                  <a href="/guides/basic-pension-guide" className="block hover:text-emerald-600">기초연금 가이드</a>
+                  <a href="/guides/eitc-guide" className="block hover:text-emerald-600">근로장려금 가이드</a>
+                  <a href="/guides/basic-living-guide" className="block hover:text-emerald-600">기초생활수급 가이드</a>
                 </div>
               </div>
             </div>
