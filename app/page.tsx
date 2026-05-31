@@ -286,6 +286,32 @@ export default function HomePage() {
         )}
       </div>
 
+      {/* 내 상황별 빠른 찾기 */}
+      <section className="py-8 px-4 bg-gradient-to-br from-emerald-50 to-teal-50 border-t border-emerald-100">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-lg font-bold text-gray-800 mb-1">🎯 내 상황에 맞는 혜택 바로 찾기</h2>
+          <p className="text-sm text-gray-500 mb-4">지금 상황을 선택하면 받을 수 있는 정부 지원을 안내해드려요.</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { href: "/guides/baby-money", icon: "👶", label: "아이를 낳았어요", color: "bg-pink-50 hover:bg-pink-100 border-pink-200" },
+              { href: "/guides/elderly-benefits", icon: "👴", label: "만 65세 이상이에요", color: "bg-cyan-50 hover:bg-cyan-100 border-cyan-200" },
+              { href: "/guides/low-income-benefits", icon: "🏠", label: "생활이 어려워요", color: "bg-amber-50 hover:bg-amber-100 border-amber-200" },
+              { href: "/guides/unemployment-guide", icon: "💼", label: "일을 잃었어요", color: "bg-blue-50 hover:bg-blue-100 border-blue-200" },
+              { href: "/guides/youth-guide", icon: "🧑", label: "청년이에요", color: "bg-lime-50 hover:bg-lime-100 border-lime-200" },
+              { href: "/guides/basic-living-guide", icon: "📋", label: "기초수급 신청할게요", color: "bg-orange-50 hover:bg-orange-100 border-orange-200" },
+              { href: "/guides/eitc-guide", icon: "💰", label: "근로장려금 받고싶어요", color: "bg-emerald-50 hover:bg-emerald-100 border-emerald-200" },
+              { href: "/guides/all-benefits-2026", icon: "📊", label: "전체 지원금 보기", color: "bg-gray-50 hover:bg-gray-100 border-gray-200" },
+            ].map((item) => (
+              <a key={item.href} href={item.href}
+                className={`flex flex-col items-center gap-1.5 ${item.color} border rounded-2xl px-3 py-4 text-center transition-colors`}>
+                <span className="text-2xl">{item.icon}</span>
+                <span className="text-xs font-bold text-gray-700 leading-tight">{item.label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 신청 가이드 섹션 */}
       <section className="py-8 px-4 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
@@ -293,11 +319,11 @@ export default function HomePage() {
           <p className="text-sm text-gray-500 mb-4">자격 조건부터 신청 방법까지, 단계별로 쉽게 알려드려요.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {[
+              { href: "/guides/all-benefits-2026", icon: "📊", label: "정부지원금 총정리" },
               { href: "/guides/unemployment-guide", icon: "💼", label: "실업급여" },
               { href: "/guides/basic-pension-guide", icon: "👴", label: "기초연금" },
               { href: "/guides/parental-allowance-guide", icon: "👶", label: "부모급여" },
               { href: "/guides/eitc-guide", icon: "💰", label: "근로장려금" },
-              { href: "/guides/basic-living-guide", icon: "🏠", label: "기초생활수급" },
               { href: "/guides", icon: "📋", label: "전체 가이드 보기" },
             ].map((item) => (
               <a key={item.href} href={item.href}
