@@ -96,6 +96,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${SITE_URL}/calendar`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/single-parent`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/disability-benefits`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/welfare-glossary`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/guides/regional-benefits`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/guides/all-benefits-2026`,
       lastModified: new Date("2026-05-28"),
       changeFrequency: "monthly" as const,

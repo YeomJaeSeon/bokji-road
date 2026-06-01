@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 
 const ITEMS = [
   { href: "/",           icon: "🏠", label: "홈" },
+  { href: "/guides",     icon: "📋", label: "가이드" },
+  { href: "/calendar",   icon: "📅", label: "캘린더" },
   { href: "/calculator", icon: "🧮", label: "계산기" },
-  { href: "/favorites",  icon: "❤️", label: "즐겨찾기" },
-  { href: "/compare/youth-savings", icon: "📊", label: "비교" },
 ];
 
 export default function BottomNav() {

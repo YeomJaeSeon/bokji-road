@@ -129,11 +129,13 @@ export default function RootLayout({
               <div>
                 <p className="font-bold text-gray-700 mb-2">신청 가이드</p>
                 <div className="space-y-1.5">
-                  <a href="/guides/youth-guide" className="block hover:text-emerald-600">청년 혜택 총정리</a>
-                  <a href="/guides/unemployment-guide" className="block hover:text-emerald-600">실업급여 가이드</a>
-                  <a href="/guides/basic-pension-guide" className="block hover:text-emerald-600">기초연금 가이드</a>
-                  <a href="/guides/eitc-guide" className="block hover:text-emerald-600">근로장려금 가이드</a>
-                  <a href="/guides/basic-living-guide" className="block hover:text-emerald-600">기초생활수급 가이드</a>
+                  <a href="/guides/all-benefits-2026" className="block hover:text-emerald-600">정부 지원금 총정리</a>
+                  <a href="/guides/elderly-benefits" className="block hover:text-emerald-600">노인 혜택 총정리</a>
+                  <a href="/guides/baby-money" className="block hover:text-emerald-600">아이 낳으면 받는 돈</a>
+                  <a href="/guides/single-parent" className="block hover:text-emerald-600">한부모가족 지원</a>
+                  <a href="/guides/disability-benefits" className="block hover:text-emerald-600">장애인 혜택</a>
+                  <a href="/guides/low-income-benefits" className="block hover:text-emerald-600">생활이 어려울 때</a>
+                  <a href="/calendar" className="block hover:text-emerald-600">신청 캘린더</a>
                 </div>
               </div>
               <div>

@@ -134,6 +134,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 긴급 지원 배너 */}
+      <div className="bg-red-600 text-white px-4 py-3">
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            <span className="text-lg">🚨</span>
+            <span>지금 당장 생활비가 없다면 — 긴급복지지원을 즉시 신청하세요</span>
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <a href="tel:129"
+              className="bg-white text-red-700 font-extrabold px-4 py-1.5 rounded-xl text-sm hover:bg-red-50 transition-colors">
+              ☎ 129 지금 전화
+            </a>
+            <a href="/guides/low-income-benefits"
+              className="border border-white/60 text-white font-semibold px-3 py-1.5 rounded-xl text-sm hover:bg-red-700 transition-colors">
+              지원 안내 →
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* 개인화 대시보드 */}
       <Dashboard
         profile={profile}
