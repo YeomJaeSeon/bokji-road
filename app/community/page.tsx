@@ -116,17 +116,11 @@ export default function CommunityPage() {
       <p className="text-sm text-gray-500 mb-2">복지 신청 중 궁금한 것, 실제로 자주 묻는 질문과 답변입니다.</p>
 
       <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-6 text-sm">
-        <p className="font-bold text-emerald-800 mb-1">💬 직접 질문하고 싶다면</p>
-        <p className="text-gray-700 mb-2">
-          복지로드 카카오채널에서 질문하거나,
-          <a href="tel:129" className="text-emerald-600 font-bold mx-1">☎ 129</a>
-          복지 콜센터(무료)에 직접 전화하세요.
+        <p className="font-bold text-emerald-800 mb-1">💬 아래 Q&A에 없는 질문이 있다면</p>
+        <p className="text-gray-700">
+          <a href="tel:129" className="text-emerald-600 font-bold">☎ 129</a>
+          {" "}복지 콜센터(무료, 월~금 9~18시)에 전화하면 담당자가 직접 답변해드립니다.
         </p>
-        <a href="https://pf.kakao.com/_bokjiroad" target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#FEE500] text-[#3C1E1E] font-bold px-4 py-2 rounded-xl text-sm hover:bg-yellow-300 transition-colors">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.71 1.517 5.098 3.839 6.574l-.978 3.626 4.225-2.787A11.26 11.26 0 0012 18.6c5.523 0 10-3.477 10-7.8S17.523 3 12 3z"/></svg>
-          카카오채널 질문하기
-        </a>
       </div>
 
       <AdSlotHorizontal slot="B001000001" />
