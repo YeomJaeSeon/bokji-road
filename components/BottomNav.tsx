@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const ITEMS = [
-  { href: "/",           icon: "🏠", label: "홈" },
-  { href: "/guides",     icon: "📋", label: "가이드" },
-  { href: "/calendar",   icon: "📅", label: "캘린더" },
-  { href: "/calculator", icon: "🧮", label: "계산기" },
+  { href: "/",                icon: "🏠", label: "홈" },
+  { href: "/payment-dates",   icon: "📅", label: "수령일" },
+  { href: "/guides",          icon: "📋", label: "가이드" },
+  { href: "/community",       icon: "💬", label: "Q&A" },
 ];
 
 export default function BottomNav() {

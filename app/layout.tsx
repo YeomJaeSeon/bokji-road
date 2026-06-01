@@ -118,12 +118,13 @@ export default function RootLayout({
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-6 text-xs">
               <div>
-                <p className="font-bold text-gray-700 mb-2">혜택 안내</p>
+                <p className="font-bold text-gray-700 mb-2">매일 확인</p>
                 <div className="space-y-1.5">
-                  <a href="/#benefits" className="block hover:text-emerald-600">전체 혜택 보기</a>
-                  <a href="/#roadmap" className="block hover:text-emerald-600">생애주기 로드맵</a>
-                  <a href="/favorites" className="block hover:text-emerald-600">즐겨찾기</a>
+                  <a href="/payment-dates" className="block hover:text-emerald-600">급여 수령일 계산기</a>
+                  <a href="/calendar" className="block hover:text-emerald-600">신청 캘린더</a>
+                  <a href="/community" className="block hover:text-emerald-600">복지 Q&A</a>
                   <a href="/news" className="block hover:text-emerald-600">복지 뉴스</a>
+                  <a href="/favorites" className="block hover:text-emerald-600">즐겨찾기</a>
                 </div>
               </div>
               <div>

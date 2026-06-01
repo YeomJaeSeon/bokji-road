@@ -134,6 +134,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 매일 방문 유도 바 */}
+      <div className="bg-gray-900 text-white px-4 py-2.5">
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-3 flex-wrap text-sm">
+          <div className="flex items-center gap-3 flex-wrap">
+            <a href="/payment-dates" className="flex items-center gap-1.5 hover:text-yellow-300 transition-colors font-semibold">
+              📅 이번 달 급여 수령일 확인
+            </a>
+            <span className="text-gray-600 hidden sm:inline">|</span>
+            <a href="/calendar" className="flex items-center gap-1.5 hover:text-yellow-300 transition-colors hidden sm:flex">
+              ⏰ 신청 마감 캘린더
+            </a>
+            <span className="text-gray-600 hidden sm:inline">|</span>
+            <a href="/community" className="flex items-center gap-1.5 hover:text-yellow-300 transition-colors hidden sm:flex">
+              💬 Q&A 게시판
+            </a>
+          </div>
+          <a href="https://pf.kakao.com/_bokjiroad" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-1.5 bg-[#FEE500] text-[#3C1E1E] font-bold px-3 py-1 rounded-lg text-xs hover:bg-yellow-300 transition-colors flex-shrink-0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.71 1.517 5.098 3.839 6.574l-.978 3.626 4.225-2.787A11.26 11.26 0 0012 18.6c5.523 0 10-3.477 10-7.8S17.523 3 12 3z"/></svg>
+            카카오 알림 구독
+          </a>
+        </div>
+      </div>
+
       {/* 긴급 지원 배너 */}
       <div className="bg-red-600 text-white px-4 py-3">
         <div className="max-w-4xl mx-auto flex items-center justify-between gap-3 flex-wrap">

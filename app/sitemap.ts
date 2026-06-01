@@ -96,6 +96,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${SITE_URL}/payment-dates`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/community`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/calendar`,
       lastModified: new Date("2026-06-01"),
       changeFrequency: "monthly" as const,
