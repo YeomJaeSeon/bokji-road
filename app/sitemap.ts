@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import benefitsData from "@/data/benefits.json";
 import type { Benefit } from "@/types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokjiroad.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bokji-road.vercel.app";
 const allBenefits = benefitsData as Benefit[];
 
 const CATEGORIES = ["임신출산", "영아", "유아", "아동", "청소년", "청년", "장년", "중년", "노년"];
@@ -190,6 +190,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-05-28"),
       changeFrequency: "monthly",
       priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/guides/age-30s`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/age-40s-50s`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/age-60s-plus`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/rejected-benefits`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
     },
     {
       url: `${SITE_URL}/about`,
