@@ -216,6 +216,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/guides/emergency-welfare`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/housing-benefit`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/college-scholarship`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/self-employed-insurance`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/guides/happy-birth-card`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/medical-expense-support`,
+      lastModified: new Date("2026-06-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/about`,
       lastModified: new Date("2026-05-01"),
       changeFrequency: "monthly",
