@@ -252,6 +252,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${SITE_URL}/guides/energy-voucher`,
+      lastModified: new Date("2026-06-09"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/near-poverty-line`,
+      lastModified: new Date("2026-06-09"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/parental-leave-pay`,
+      lastModified: new Date("2026-06-09"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/national-pension-guide`,
+      lastModified: new Date("2026-06-09"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/senior-jobs`,
+      lastModified: new Date("2026-06-09"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/disability-pension`,
+      lastModified: new Date("2026-06-09"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/about`,
       lastModified: new Date("2026-05-01"),
       changeFrequency: "monthly",
