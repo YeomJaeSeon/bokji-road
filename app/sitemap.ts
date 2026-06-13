@@ -252,6 +252,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${SITE_URL}/guides/long-term-care`,
+      lastModified: new Date("2026-06-13"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/youth-rent-support`,
+      lastModified: new Date("2026-06-13"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/medical-benefit`,
+      lastModified: new Date("2026-06-13"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/education-benefit`,
+      lastModified: new Date("2026-06-13"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/guides/developmental-disability`,
+      lastModified: new Date("2026-06-13"),
+      changeFrequency: "monthly" as const,
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/guides/subway-free-ride`,
       lastModified: new Date("2026-06-13"),
       changeFrequency: "monthly" as const,
